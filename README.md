@@ -7,6 +7,10 @@
         - [Introduction to RISC-V](#introduction-to-risc-v)
         - [From Software Applications to Hardware](#from-software-applications-to-hardware)
     - [SoC design and OpenLANE](#soc-design-and-openlane)
+        - Introduction to all componenets of open-source digital asic design
+        - Simplified RTL2GDS flow
+        - Introduction to OpenLANE and Strive chipsets
+        - Introduction to OpenLANE detailed ASIC design flow
     - Getting familiar to open-source EDA tools
 2. Good floorplan vs bad floorplan and introduction to library cells
     - Chip FLoor planning considerations
@@ -62,4 +66,7 @@ Flow: ISA->HDL->Netlist->Physical design
 
 
 
+
 ## SoC design and OpenLANE
+### Introduction to all componenets of open-source digital asic design
+
