@@ -1,9 +1,9 @@
 # NASSCOM-VSD-SoC-Design
 ## Advanced Physical Design using OpenLANE/Sky130
-### Contents
+## Contents
 1. [Inception of open-source EDA, OpenLANE and Sky130 PDK](#inception-of-open-source-eda-openlane-and-sky130-pdk)
     - [How to talk to computers?](#how-to-talk-to-computers)
-        - [Introduction to QFN-48 Package, chip, pads, core, die and IPs]
+        - [Introduction to QFN-48 Package, chip, pads, core, die and IPs](#introduction-to-qfn-48-package-chip-pads-core-die-and-ips)
     - SoC design and OpenLANE
     - Getting familiar to open-source EDA tools
 2. Good floorplan vs bad floorplan and introduction to library cells
@@ -16,9 +16,9 @@
 4. Pre-layout timing analysis and importance of good clock tree
 5. Final steps for RTL2GDS using tritonRoute and openSTA
 
-### Inception of open-source EDA, OpenLANE and Sky130 PDK
-#### How to talk to computers
-##### Introduction to QFN-48 Package, chip, pads, core, die and IPs
+## Inception of open-source EDA, OpenLANE and Sky130 PDK
+### How to talk to computers?
+#### Introduction to QFN-48 Package, chip, pads, core, die and IPs
 Arduino is a common electronics platform which is taken as an example here. The illustration shown below is the Arduino Leonardo microcontroller board based on the ATmega32u4. A quick summary on the microcontroller is that it features 20 digital input/output pins, out of which 7 can be used as PWM outputs and 12 as analog inputs. It incorporates a 16 MHz crystal oscillator, a micro USB connection, a power jack, an ICSP header, and a reset button, encompassing all necessary components to facilitate the microcontroller's operations. To initiate, one can seamlessly connect it to a computer using a USB cable or power it through an AC-to-DC adapter or battery.
 
 ![Picture1](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/7c190d7b-f48b-43a5-8697-a2271a28e9aa)
