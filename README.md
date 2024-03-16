@@ -4,8 +4,8 @@
 1. [Inception of open-source EDA, OpenLANE and Sky130 PDK](#inception-of-open-source-eda-openlane-and-sky130-pdk)
     - [How to talk to computers?](#how-to-talk-to-computers)
         - [Introduction to QFN-48 Package, chip, pads, core, die and IPs](#introduction-to-qfn-48-package-chip-pads-core-die-and-ips)
-        - Introduction to RISC-V
-        - From Software Applications to Hardware
+        - [Introduction to RISC-V](#introduction-to-risc-v)
+        - [From Software Applications to Hardware](#from-software-applications-to-hardware)
     - SoC design and OpenLANE
     - Getting familiar to open-source EDA tools
 2. Good floorplan vs bad floorplan and introduction to library cells
@@ -19,7 +19,7 @@
 5. Final steps for RTL2GDS using tritonRoute and openSTA
 
 ## Inception of open-source EDA, OpenLANE and Sky130 PDK
-### How to talk to computers?
+## How to talk to computers?
 ### Introduction to QFN-48 Package, chip, pads, core, die and IPs
 Arduino is a common electronics platform which is taken as an example here. The illustration shown below is the Arduino Leonardo microcontroller board based on the ATmega32u4. A quick summary on the microcontroller is that it features 20 digital input/output pins, out of which 7 can be used as PWM outputs and 12 as analog inputs. It incorporates a 16 MHz crystal oscillator, a micro USB connection, a power jack, an ICSP header, and a reset button, encompassing all necessary components to facilitate the microcontroller's operations. To initiate, one can seamlessly connect it to a computer using a USB cable or power it through an AC-to-DC adapter or battery.
 
@@ -46,3 +46,5 @@ The below picture is referred to as a package. The pin placements of this packag
 While foundry IP is a broader concept encompassing various types of reusable circuit blocks provided by semiconductor foundries, macros specifically refer to pre-designed functional blocks intended for reuse within chip designs. Macros are a subset of foundry IP and are typically larger, more complex, and designed to perform specific functions within a chip.
 
 ### Introduction to RISC-V
+
+### From Software Applications to Hardware
