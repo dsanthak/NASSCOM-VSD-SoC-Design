@@ -14,3 +14,7 @@
     - [Labs for CMOS inverter ngspice simulations](https://gitlab.com/gab13c/openlane-workshop.git)
 4. [Pre-layout timing analysis and importance of good clock tree](https://gitlab.com/gab13c/openlane-workshop.git)
 5. [Final steps for RTL2GDS using tritonRoute and openSTA](https://gitlab.com/gab13c/openlane-workshop.git)
+
+### Inception of open-source EDA, OpenLANE and Sky130 PDK
+#### How to talk to computers
+The Arduino Leonardo 
