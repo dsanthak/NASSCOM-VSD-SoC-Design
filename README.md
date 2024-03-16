@@ -6,7 +6,7 @@
         - [Introduction to QFN-48 Package, chip, pads, core, die and IPs](#introduction-to-qfn-48-package-chip-pads-core-die-and-ips)
         - [Introduction to RISC-V](#introduction-to-risc-v)
         - [From Software Applications to Hardware](#from-software-applications-to-hardware)
-    - SoC design and OpenLANE
+    - [SoC design and OpenLANE](#soc-design-and-openlane)
     - Getting familiar to open-source EDA tools
 2. Good floorplan vs bad floorplan and introduction to library cells
     - Chip FLoor planning considerations
@@ -59,6 +59,7 @@ Flow:StopWatch App to Hardware
 
 ![picture8](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/b496f214-0b5b-4dbc-b3bc-a0ae3ddff95b)
 Flow: ISA->HDL->Netlist->Physical design
+
 
 
 ## SoC design and OpenLANE
