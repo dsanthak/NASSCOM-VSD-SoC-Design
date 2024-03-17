@@ -7,10 +7,10 @@
         - [Introduction to RISC-V](#introduction-to-risc-v)
         - [From Software Applications to Hardware](#from-software-applications-to-hardware)
     - [SoC design and OpenLANE](#soc-design-and-openlane)
-        - Introduction to all componenets of open-source digital asic design
-        - Simplified RTL2GDS flow
-        - Introduction to OpenLANE and Strive chipsets
-        - Introduction to OpenLANE detailed ASIC design flow
+        - [Introduction to all componenets of open-source digital asic design](#introduction-to-all-componenets-of-open-source-digital-asic-design)
+        - [Simplified RTL2GDS flow](#simplified-rtl2gds-flow)
+        - [Introduction to OpenLANE and Strive chipsets](#introduction-to-openlane-and-strive-chipsets)
+        - [Introduction to OpenLANE detailed ASIC design flow](#introduction-to-openlane-detailed-asic-design-flow)
     - Getting familiar to open-source EDA tools
 2. Good floorplan vs bad floorplan and introduction to library cells
     - Chip FLoor planning considerations
@@ -115,3 +115,15 @@ Power planning involves the distribution of power supplies and the design of pow
 Physical verification like DRC, LVS, and timing verification like STA
 
 ### Introduction to OpenLANE and Strive chipsets
+OpenLANE is an open-source digital ASIC (Application-Specific Integrated Circuit) design flow developed by efabless and Google, designed to automate the entire RTL-to-GDSII (Register Transfer Level to Graphic Design System II) flow based on several components including OpenROAD, Yosys, Magic, Netgen, CVC, SPEF-Extractor, KLayout and a number of custom scripts for design exploration and optimization.
+
+![Picture19](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/05550570-31bd-4d63-8d10-7b3f1104e6d9)
+
+![Picture20](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/26061efd-cb55-45d7-9128-f3bd356b0272)
+
+The objective of OpenLANE is to produce a clean GDSII (No LVS violations, No DRC violations, and no Timing violations) with no human intervention.
+
+### Introduction to OpenLANE detailed ASIC design flow
+OpenLane ASIC Design Flow:
+![Picture21](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/39ddfbcb-3539-4686-9cf9-0e772d0398fa)
+
