@@ -125,5 +125,6 @@ The objective of OpenLANE is to produce a clean GDSII (No LVS violations, No DRC
 
 ### Introduction to OpenLANE detailed ASIC design flow
 
-![Picture21](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/39ddfbcb-3539-4686-9cf9-0e772d0398fa)
+![Picture21](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/d2a634e1-1597-4781-a62a-548a9d668d0c)
+
 
