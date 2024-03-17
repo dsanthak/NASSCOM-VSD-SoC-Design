@@ -124,6 +124,6 @@ OpenLANE is an open-source digital ASIC (Application-Specific Integrated Circuit
 The objective of OpenLANE is to produce a clean GDSII (No LVS violations, No DRC violations, and no Timing violations) with no human intervention.
 
 ### Introduction to OpenLANE detailed ASIC design flow
-OpenLane ASIC Design Flow:
+
 ![Picture21](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/39ddfbcb-3539-4686-9cf9-0e772d0398fa)
 
