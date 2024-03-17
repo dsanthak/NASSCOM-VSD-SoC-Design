@@ -127,4 +127,6 @@ The objective of OpenLANE is to produce a clean GDSII (No LVS violations, No DRC
 
 ![Picture21](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/d2a634e1-1597-4781-a62a-548a9d668d0c)
 
+1. Synthesis Exploration step involves generation of reports
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/79396b9b-555c-440b-85f5-b72f21bfa208)
 
