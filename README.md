@@ -12,6 +12,9 @@
         - [Introduction to OpenLANE and Strive chipsets](#introduction-to-openlane-and-strive-chipsets)
         - [Introduction to OpenLANE detailed ASIC design flow](#introduction-to-openlane-detailed-asic-design-flow)
     - [Getting familiar to open-source EDA tools](#getting-familiar-to-open-source-eda-tools)
+	- [OpenLANE Directory structure in detail]
+	- [Design Preparation Step]
+	- [Review files after design prep, run synthesis, and characterize synthesis results]
 2. Good floorplan vs bad floorplan and introduction to library cells
     - Chip FLoor planning considerations
     - Library Binding and Placement
@@ -211,13 +214,6 @@ Results after synthesis is as follows.
 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/2f50f11f-a2aa-461f-86e7-8b8b6b6a95b9)
 
-
-![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/738b283a-a7b2-4c1e-84da-011b8682a61f)
-
-![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/bf47b101-124c-4108-88b8-df4376bd75fa)
-
-![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/434096c2-258a-40b7-85e5-a788ae519c99)
-
 Here the DFF count: sky130_fd_sc_hd__dfxtp_2 = 1613
 
 And total number of cells = 14876
@@ -225,3 +221,12 @@ And total number of cells = 14876
 D flip-flop ratio  = count of DFFs / total number of cells
 	     = 1613 / 14876
 	     = 0.108429685 (OR) 10.8429 %
+
+After running synthesis, inside the runs/[date]/results/synthesis is picorv32a_synthesis.v which is the mapping of the netlist to standard cell library using ABC. The runs/[date]/reports/synthesis will contain synthesis statistic reports and STA reports. The runs/[date]/synthesis/logs contains log files.
+
+![picture22](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/5a8e6524-0d2e-4ea1-b578-f2f9dfd2cc69)
+
+![picture23](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/00bbf639-d6f1-486c-ac90-f973a1077270)
+
+![picture24](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/0c3ba4a4-859a-469e-b5e6-937a06f1c906)
+
