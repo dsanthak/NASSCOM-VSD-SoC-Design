@@ -19,8 +19,9 @@
     - [Chip FLoor planning considerations](#chip-floor-planning-considerations)
       	- [Utilization factor and aspect ratio](#utilization-factor-and-aspect-ratio)
       	- [Concept of pre-placed cells](#concept-of-pre-placed-cells)
-      	- [De-coupling capacitors]
-      	- [Power Planning]
+      	- [De-coupling capacitors](#de-coupling-capacitors)
+      	- [Power Planning](#power-planning)
+      	- [Pin placement and logical cell placement blockage](#pin-placement-and-logical-cell-placement-blockage)
     - Library Binding and Placement
     - Cell design and characterization flows
     - General timing characterization parameters
@@ -336,3 +337,26 @@ After running synthesis, inside the runs/[date]/results/synthesis is picorv32a_s
    ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/710083be-a67c-4ef8-b705-e7acc8684c2c)
 
 ### Power Planning
+Consider the circuit as a macro and it demands more current. Say, it's used as a driver as well as load, and the load should receive the same signal quality as the driver.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/f527580c-8111-40a7-b73f-b5befdb28852)
+
+Decoupling capactor is not feasible to be added all over the chip but only on the critical elements.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/4d3e128a-046d-47b7-8544-53f349b0f8f1)
+
+In the below picture, 1 means the capacitor is charged to V and 0 means the capacitor is discharged. If the wire bus is connected to an inverter, then it means that all the capacitors charged to V will discharge at the same time. Large number of elements switching to logic0 might cause Ground Bounce due to huge amount of current that needs to be sinked at the same time, and switcing to logic 1 might cause Voltage Droop due to insufficient current from the power source to all elements. Ground bounce and Voltage Droop might cause the voltage to not be within the noise margin range. The solution is to have multiple powersource taps (power mesh) where elements can source current from the nearest Vdd and sink current to the nearest Vss tap.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/8d7eeda1-5331-4266-a9c8-24ee1c6147e3)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/244f12b3-3d6a-44d9-9e6b-237c031c27bc)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/79cc70a5-435b-4768-97e0-154ffd0c944a)
+
+Instead of single power supply as before, there are multiple Vdd and Vss lines. If a logic demands current, it can tap current from the nearest power supply.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/f31e18e8-9992-4e20-a399-76b26f242412)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/7f046f41-5496-4d1d-b2e2-62746808b28f)
+
+### Pin placement and logical cell placement blockage
