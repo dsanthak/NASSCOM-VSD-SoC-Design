@@ -462,7 +462,7 @@ Run placement on OpenLane: % run_placement
 
 This commmand is a wrapper which does global placement (by RePlace tool), Optimization (by Resier tool), and detailed placement (by OpenDP tool). 
 
-Placement is done on two stages:
+Placement is done in two stages:
 
 - Global Placement : no legalization takes place and uses Half Perimeter Wirelength (HPWL) reduction model.
 - Detailed Placement : legalization happens where the standard cells are placed in stadard rows, and there will be no overlaps of the cells.
