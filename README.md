@@ -11,7 +11,7 @@
         - [Simplified RTL2GDS flow](#simplified-rtl2gds-flow)
         - [Introduction to OpenLANE and Strive chipsets](#introduction-to-openlane-and-strive-chipsets)
         - [Introduction to OpenLANE detailed ASIC design flow](#introduction-to-openlane-detailed-asic-design-flow)
-    - Getting familiar to open-source EDA tools
+    - [Getting familiar to open-source EDA tools](#getting-familiar-to-open-source-eda-tools)
 2. Good floorplan vs bad floorplan and introduction to library cells
     - Chip FLoor planning considerations
     - Library Binding and Placement
@@ -128,5 +128,57 @@ The objective of OpenLANE is to produce a clean GDSII (No LVS violations, No DRC
 ![Picture21](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/d2a634e1-1597-4781-a62a-548a9d668d0c)
 
 1. Synthesis Exploration step involves generation of reports
+   
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/79396b9b-555c-440b-85f5-b72f21bfa208)
+
+2. Design Exploration step is used to sweep the design configuration and it's useful to find best configuration for any given design. A sample of generated report is shown below.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/6100faa1-fb04-4cd4-9ef5-211768c81247)
+
+3. OpenLANE Regression Testing
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/2b11ad32-a1dd-4f19-8632-551a49d4ddd1)
+
+4. Design for Test (DFT)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/be412047-18dc-470c-8279-41080d61977f)
+
+5. Physical verification (DRC & LVS)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/3501185b-24c1-42ac-8983-f8042a0dfde8)
+
+6. Logic Equivalence Check (LEC) checks the logic synchronisation between physical implementation and the netlist
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/465268de-fd43-43c5-8cf5-45b708d4fecb)
+
+7. Dealing with Antenna Rules violations
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/bd7caa6f-0352-4300-b8e5-ecae41ea00a8)
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/b60fdc8c-f3fe-465c-b6ce-9e8ad3818c41)
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/a1508a04-a792-4d55-b12d-6a9115674e9c)
+
+8. Static Timing Analysis (STA) ensures that the design meets timing requirements. STA evaluates the timing behavior of a digital circuit without considering dynamic factors such as signal transitions and clock skew. It determines whether the design meets setup and hold time constraints, maximum clock frequency, and other timing requirements. The input to STA includes the synthesized netlist of the design, and timing constraints.
+
+
+
+
+## Getting familiar to open-source EDA tools
+### OpenLANE Directory structure in detail
+The Open Lane working directory has the following folders. 
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/e82817dd-66ab-4fbf-9ebf-218584d15207)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/f5b15f41-266e-4e43-a874-d67efe3df4c2)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/a91c4669-95f1-4297-993a-285a86b60d1f)
+
+open-pdks contains scripts that makes the commerical PDK to also be compatible with the open-source EDA tool
+sky130A pdk variant is made especially compatible for open-source tools. It contains libs.ref and libs.tech
+    libs.ref contains all the process or technology specific files, example sky130_fd_sc_hd : Sky130nm Foundry Standard Cell High Density
+    libs.tech has files specific for the tool (klayout,netgen,magic...) 
+skywater-pdk contains all Skywater 130nm PDKs
+
+### Design Preparation Step
+OpenLane can be invoked using docker command using the interactive session.
+
 
