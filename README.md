@@ -12,6 +12,7 @@
         - [Introduction to OpenLANE and Strive chipsets](#introduction-to-openlane-and-strive-chipsets)
         - [Introduction to OpenLANE detailed ASIC design flow](#introduction-to-openlane-detailed-asic-design-flow)
     - [Getting familiar to open-source EDA tools](#getting-familiar-to-open-source-eda-tools)
+        - [Simplified RTL2GDS flow](#simplified-rtl2gds-flow)
 	- [OpenLANE Directory structure in detail](#openlane-directory-structure-in-detail)
 	- [Design Preparation Step](#design-preparation-step)
 	- [Review files after design prep, run synthesis, and characterize synthesis results](#review-files-after-design-prep-run-synthesis-and-characterize-synthesis-results)
