@@ -28,7 +28,9 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       	- [Steps to run floorplan using OpenLANE and view floorplan layout in Magic](#steps-to-run-floorplan-using-openlane-and-view-floorplan-layout-in-magic)
     - [Library Binding and Placement](#library-binding-and-placement)
         - [Netlist binding and initial place design](#netlist-binding-and-initial-place-design)
-    - Cell design and characterization flows
+        - [Optimize placement using estimated wire-length and capacitance](#optimize-placement-using-estimated-wire-length-and-capacitance)
+        - [Congestion aware placement using RePlAce](#congestion-aware-placement-using-replace)
+    - [Cell design and characterization flows](#cell-design-and-characterization-flows)
     - General timing characterization parameters
 3. Design library cell using Magic Layout and ngspice characterization
     - Labs for CMOS inverter ngspice simulations
@@ -414,7 +416,7 @@ In OpenLANE flow, the vertical and horizontal metals are one more than what we s
 
 6. To view the layout after floorplan, we use magic tool
 
-   magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
+   Command: magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
 
    ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/a489217b-1914-46df-837a-de3ba433cf39)
 
@@ -437,3 +439,41 @@ In OpenLANE flow, the vertical and horizontal metals are one more than what we s
 
 ## Library Binding and Placement
 ### Netlist binding and initial place design
+1. Bind netlist with physical cells
+
+   Bind the netlist to physical cells with real dimensions. The physical cells come from a library that contains cells which can have different dimensions, various shapes of the cells, and delay 
+   information. Bigger cells have lesser resistance while the functionality is the same. This means that the library has many flavors of cells.
+
+2. Placement
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/17afb665-8dfe-496d-9573-7662d7d117ed)
+
+   Placement is done based on connectivity. For example, FF1 is close to Din1 pin and FF2 close to Dout1 pin and combinational cells placed nearer to FF1 and FF2. This is to reduce delay.
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/8f957e69-5c3d-48b0-a3af-b8060cc85a59)
+
+### Optimize placement using estimated wire-length and capacitance
+This is the stage where we estimate wirelength and capacitance (C=EA/d) and insert repeaters based on that. If the wirelength is more, then to maintain signal integrity, we add repeaters to reduce resistance. Repeaters basically reconditions the original signal and transfers. 
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/8d1c93ed-7b02-4e5b-907e-01be09aa6911)
+
+### Congestion aware placement using RePlAce
+Run placement on OpenLane: % run_placement
+
+This commmand is a wrapper which does global placement (by RePlace tool), Optimization (by Resier tool), and detailed placement (by OpenDP tool). 
+
+Placement is done on two stages:
+
+- Global Placement : no legalization takes place and uses Half Perimeter Wirelength (HPWL) reduction model.
+- Detailed Placement : legalization happens where the standard cells are placed in stadard rows, and there will be no overlaps of the cells.
+
+The objective of placement is to converge the overflow value. If overflow value progressively reduces during the placement,then it implies that the design will converge and placement will be successful.
+
+After running the placement, output is generated in this folder /openlane/designs/picorv32a/runs/date/results/placement/picorv32a.placement.def
+
+Command: magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/3e9ab0f1-cb06-4b2f-8566-51383c5d8689)
+
+
+## Cell design and characterization flows
