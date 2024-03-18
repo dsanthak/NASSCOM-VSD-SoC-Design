@@ -26,7 +26,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       	- [Power Planning](#power-planning)
       	- [Pin placement and logical cell placement blockage](#pin-placement-and-logical-cell-placement-blockage)
       	- [Steps to run floorplan using OpenLANE and view floorplan layout in Magic](#steps-to-run-floorplan-using-openlane-and-view-floorplan-layout-in-magic)
-    - Library Binding and Placement
+    - [Library Binding and Placement](#library-binding-and-placement)
         - [Netlist binding and initial place design](#netlist-binding-and-initial-place-design)
     - Cell design and characterization flows
     - General timing characterization parameters
