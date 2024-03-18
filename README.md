@@ -164,7 +164,7 @@ The objective of OpenLANE is to produce a clean GDSII (No LVS violations, No DRC
 
 ## Getting familiar to open-source EDA tools
 ### OpenLANE Directory structure in detail
-The Open Lane working directory has the following folders. 
+The Open Lane working directory has the following folders and sub-folders. 
 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/e82817dd-66ab-4fbf-9ebf-218584d15207)
 
@@ -172,11 +172,11 @@ The Open Lane working directory has the following folders.
 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/a91c4669-95f1-4297-993a-285a86b60d1f)
 
-open-pdks contains scripts that makes the commerical PDK to also be compatible with the open-source EDA tool
-sky130A pdk variant is made especially compatible for open-source tools. It contains libs.ref and libs.tech
+- open-pdks contains scripts that makes the commerical PDK to also be compatible with the open-source EDA tool
+- sky130A pdk variant is made especially compatible for open-source tools. It contains libs.ref and libs.tech
     libs.ref contains all the process or technology specific files, example sky130_fd_sc_hd : Sky130nm Foundry Standard Cell High Density
     libs.tech has files specific for the tool (klayout,netgen,magic...) 
-skywater-pdk contains all Skywater 130nm PDKs
+- skywater-pdk contains all Skywater 130nm PDKs
 
 ### Design Preparation Step
 OpenLane can be invoked using docker command using the interactive session.
