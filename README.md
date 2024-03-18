@@ -18,6 +18,7 @@
 2. [Good floorplan vs bad floorplan and introduction to library cells](#good-floorplan-vs-bad-floorplan-and-introduction-to-library-cells)
     - [Chip FLoor planning considerations](#chip-floor-planning-considerations)
       	- [Utilization factor and aspect ratio](#utilization-factor-and-aspect-ratio)
+      	- [Concept of pre-placed cells](#concept-of-preplaced-cells)
     - Library Binding and Placement
     - Cell design and characterization flows
     - General timing characterization parameters
@@ -237,3 +238,47 @@ After running synthesis, inside the runs/[date]/results/synthesis is picorv32a_s
 ## Good floorplan vs bad floorplan and introduction to library cells
 ## Chip Floor planning considerations
 ### Utilization factor and aspect ratio
+1. Define width and height of core and die
+   The height and width of the core are determined by the layout of the functional units within the core, while the height and width of the die are determined by the size of the semiconductor wafer on 
+   which the chip is fabricated. The core represents the functional unit of the chip, while the die encompasses the entire semiconductor wafer containing multiple copies of the core.
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/d5acad57-8e42-4846-99bd-2ee1f97a6246)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/c705e6e3-2dbc-4495-81e2-b7f61f548cb1)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/2380f2c4-b2c5-4133-9bd9-6b49c1f26624)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/fab25f37-de02-4238-b85c-f6156b64e350)
+
+   Let's calculate the area occupied by the above netlist on a silicon wafer. Before that the wires are ignored and the flops and combinational logic are combined together to get the total area. So, here, the 
+   area will be 4 sq.units.
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/5c1ec102-2c0e-458c-8c62-1895777521aa)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/ff65d8fd-5f4d-482a-8d9a-73c82359920c)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/1c6bdd21-b869-4e33-aaeb-efd0226b5b71)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/aa7a2d5c-27fb-465f-a5b9-58b3a01ffb40)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/61a9c207-f244-454e-abf3-f8c2fa96c0e9)
+
+   Utilization factor  = (4 x 1sq.unit) / (2 unit x 2 unit)
+                       = 1
+   which means the core is completely occupied. In practical scenario, utilization is about 50%
+
+   Aspect ratio = Height / Width
+   In this case, height and width are same, so the aspect ratio is 1
+   If the aspect ratio is 1 it shows that the chip is square, otherwise it is rectangle.
+
+   Example:
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/877913ad-a5e1-4094-a063-90d6e8c33068)
+
+   Utilization factor  = (4 sq.units) / (8 sq.units)
+                       = 0.5
+   Aspect ratio = 2 / 4
+                = 0.5
+
+### Concept of pre-placed cells
+2. Define Locations of Preplaced Cells
