@@ -288,4 +288,9 @@ After running synthesis, inside the runs/[date]/results/synthesis is picorv32a_s
 2. Define Locations of Preplaced Cells
 
    Preplaced cells are reusable complex logic blocks or modules or IPs or macros that is already implemented (memory, clock-gating cell, mux, comparator). The placement of these cells in the core is user-defined 
-   and must be done before placement and routing of other cells. The APR tools will not be able to touch and move these preplaced cells so this must be very well defined. 
+   and must be done before placement and routing of other cells. The APR tools will not be able to touch and move these preplaced cells so this must be very well defined.
+
+   Consider the following netlist being divided into two set of blocks with connectivity preserved.
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/8b8c9aff-f11c-4595-8606-8d00a65c83b8)
+
