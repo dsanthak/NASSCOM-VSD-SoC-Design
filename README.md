@@ -13,8 +13,8 @@
         - [Introduction to OpenLANE detailed ASIC design flow](#introduction-to-openlane-detailed-asic-design-flow)
     - [Getting familiar to open-source EDA tools](#getting-familiar-to-open-source-eda-tools)
 	- [OpenLANE Directory structure in detail]
-	- [Design Preparation Step]
-	- [Review files after design prep, run synthesis, and characterize synthesis results]
+	- [Design Preparation Step](#design-preparation-step)
+	- [Review files after design prep, run synthesis, and characterize synthesis results](#review-files-after-design-prep-run-synthesis-and-characterize-synthesis-results)
 2. Good floorplan vs bad floorplan and introduction to library cells
     - Chip FLoor planning considerations
     - Library Binding and Placement
