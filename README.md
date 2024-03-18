@@ -18,7 +18,7 @@
 2. [Good floorplan vs bad floorplan and introduction to library cells](#good-floorplan-vs-bad-floorplan-and-introduction-to-library-cells)
     - [Chip FLoor planning considerations](#chip-floor-planning-considerations)
       	- [Utilization factor and aspect ratio](#utilization-factor-and-aspect-ratio)
-      	- [Concept of pre-placed cells](#concept-of-preplaced-cells)
+      	- [Concept of pre-placed cells](#concept-of-pre-placed-cells)
     - Library Binding and Placement
     - Cell design and characterization flows
     - General timing characterization parameters
