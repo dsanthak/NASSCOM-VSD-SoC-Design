@@ -265,9 +265,11 @@ After running synthesis, inside the runs/[date]/results/synthesis is picorv32a_s
 
    Utilization factor  = (4 x 1sq.unit) / (2 unit x 2 unit)
                        = 1
-   which means the core is completely occupied. In practical scenario, utilization is about 50%
+
+    which means the core is completely occupied. In practical scenario, utilization is about 50%
 
    Aspect ratio = Height / Width
+
    In this case, height and width are same, so the aspect ratio is 1
    If the aspect ratio is 1 it shows that the chip is square, otherwise it is rectangle.
 
