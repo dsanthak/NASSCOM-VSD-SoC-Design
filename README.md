@@ -239,6 +239,7 @@ After running synthesis, inside the runs/[date]/results/synthesis is picorv32a_s
 ## Chip Floor planning considerations
 ### Utilization factor and aspect ratio
 1. Define width and height of core and die
+
    The height and width of the core are determined by the layout of the functional units within the core, while the height and width of the die are determined by the size of the semiconductor wafer on 
    which the chip is fabricated. The core represents the functional unit of the chip, while the die encompasses the entire semiconductor wafer containing multiple copies of the core.
 
@@ -285,5 +286,6 @@ After running synthesis, inside the runs/[date]/results/synthesis is picorv32a_s
 
 ### Concept of pre-placed cells
 2. Define Locations of Preplaced Cells
+
    Preplaced cells are reusable complex logic blocks or modules or IPs or macros that is already implemented (memory, clock-gating cell, mux, comparator). The placement of these cells in the core is user-defined 
    and must be done before placement and routing of other cells. The APR tools will not be able to touch and move these preplaced cells so this must be very well defined. 
