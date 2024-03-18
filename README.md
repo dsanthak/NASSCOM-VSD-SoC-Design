@@ -360,3 +360,6 @@ Instead of single power supply as before, there are multiple Vdd and Vss lines. 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/7f046f41-5496-4d1d-b2e2-62746808b28f)
 
 ### Pin placement and logical cell placement blockage
+
+Let's take below design as an example to be implemented.
+
