@@ -279,6 +279,7 @@ After running synthesis, inside the runs/[date]/results/synthesis is picorv32a_s
 
    Utilization factor  = (4 sq.units) / (8 sq.units)
                        = 0.5
+
    Aspect ratio = 2 / 4
                 = 0.5
 
