@@ -210,7 +210,9 @@ It runs yosys RTL synthesis, ABC scripts (for technology mapping) and openSTA.
 Results after synthesis is as follows.
 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/738b283a-a7b2-4c1e-84da-011b8682a61f)
+
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/bf47b101-124c-4108-88b8-df4376bd75fa)
+
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/434096c2-258a-40b7-85e5-a788ae519c99)
 
 Here the DFF count: sky130_fd_sc_hd__dfxtp_2 = 1613
