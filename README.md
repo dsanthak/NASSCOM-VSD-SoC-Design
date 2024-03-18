@@ -17,6 +17,7 @@
         - [Review files after design prep, run synthesis, and characterize synthesis results](#review-files-after-design-prep-run-synthesis-and-characterize-synthesis-results)
 2. Good floorplan vs bad floorplan and introduction to library cells
     - Chip FLoor planning considerations
+      	- [Utilization factor and aspect ratio](#utilization-factor-and-aspect-ratio)
     - Library Binding and Placement
     - Cell design and characterization flows
     - General timing characterization parameters
@@ -230,3 +231,9 @@ After running synthesis, inside the runs/[date]/results/synthesis is picorv32a_s
 
 ![picture24](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/0c3ba4a4-859a-469e-b5e6-937a06f1c906)
 
+
+
+
+## Good floorplan vs bad floorplan and introduction to library cells
+## Chip Floor planning considerations
+### Utilization factor and aspect ratio
