@@ -1,5 +1,7 @@
 # NASSCOM-VSD-SoC-Design
 ## Advanced Physical Design using OpenLANE/Sky130
+Author : Deepthi Santhakumar
+
 This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisystemdesign.com/digital-vlsi-soc-design-and-planning/) on SoC design planning using the Google-SkyWater 130nm process node within the [OpenLANE](https://github.com/The-OpenROAD-Project/OpenLane) flow.
 ## Contents
 1. [Inception of open-source EDA, OpenLANE and Sky130 PDK](#inception-of-open-source-eda-openlane-and-sky130-pdk)
