@@ -19,6 +19,8 @@
     - [Chip FLoor planning considerations](#chip-floor-planning-considerations)
       	- [Utilization factor and aspect ratio](#utilization-factor-and-aspect-ratio)
       	- [Concept of pre-placed cells](#concept-of-pre-placed-cells)
+      	- [De-coupling capacitors]
+      	- [Power Planning]
     - Library Binding and Placement
     - Cell design and characterization flows
     - General timing characterization parameters
@@ -305,3 +307,32 @@ After running synthesis, inside the runs/[date]/results/synthesis is picorv32a_s
    ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/0fb1492a-25c2-4a28-979b-934ad5e9a679)
 
    ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/3f7505db-df6c-45fd-be9f-a78a96ffdab9)
+
+### De-coupling capacitors
+3. Surround pre-placed cells with decoupling capacitors
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/16a8c9d2-0f64-4c02-854c-a7693195e9c4)
+
+   Consider the circuit below as a part of a block. Whenever the circuit switches, there is an amount of current demand. For example, if the AND gate switches from logic0 to logic1, the capacitance has to 
+   completely charge. The amount of charge will be sent from the supply voltage. And when the logic switches from logic1 to logic0, the capacitance discharges and it's the responsibility of the Vss to take that 
+   discharged current.
+
+   In reality, when the Vdd supplies voltage to the circuit, there is a drop due to resistance, inductance and capacitance of the wire and supplied volatge is Vdd'
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/448c3665-e5c0-45eb-9c34-774f79df49b4)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/77bf30f5-2ec3-4881-bcac-e60d3e4b726a)
+
+   The Vdd' should be within the noise margin range which is from Vih to Voh. If it is present somewhere in the undefined region, then the logic 1 is unstable. This is because of the large physical distance from 
+   the main power supply to the circuit.
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/5cb88a92-3996-4ddd-940d-035cec7677c4)
+
+   Solution to such problem is the addition of decoupling capacitors. We can consider decoupling capacitor as a huge capacitor completely filled with charge. the equivalent voltage across the capacitor is same 
+   as seen across the main supply voltage. The capacitor decouples the circuit from the main supply.
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/2a976671-9b4f-4ed8-b9f7-066aea5c8c30)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/710083be-a67c-4ef8-b705-e7acc8684c2c)
+
+### Power Planning
