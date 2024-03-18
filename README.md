@@ -294,3 +294,14 @@ After running synthesis, inside the runs/[date]/results/synthesis is picorv32a_s
 
    ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/8b8c9aff-f11c-4595-8606-8d00a65c83b8)
 
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/0880716e-72f3-4da5-90d0-fc2c700c2731)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/48bc0a36-1a67-49ca-8869-ac93085128c1)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/451b3211-c192-4142-a89e-d7fdc8516bcb)
+
+   So, if Block1 has to be used by a designer, it can be directly handed over since it is blackboxed. This block can be used across the designs. It means the block can be reused.
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/0fb1492a-25c2-4a28-979b-934ad5e9a679)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/3f7505db-df6c-45fd-be9f-a78a96ffdab9)
