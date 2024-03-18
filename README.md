@@ -27,6 +27,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       	- [Pin placement and logical cell placement blockage](#pin-placement-and-logical-cell-placement-blockage)
       	- [Steps to run floorplan using OpenLANE and view floorplan layout in Magic](#steps-to-run-floorplan-using-openlane-and-view-floorplan-layout-in-magic)
     - Library Binding and Placement
+        - [Netlist binding and initial place design](#netlist-binding-and-initial-place-design)
     - Cell design and characterization flows
     - General timing characterization parameters
 3. Design library cell using Magic Layout and ngspice characterization
@@ -428,3 +429,11 @@ In OpenLANE flow, the vertical and horizontal metals are one more than what we s
    The components in the layout can be identified by using the "what" command in tkcon window after selecting it
 
    ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/f126ef8d-ca86-4bdd-99a4-bc15a7beae35)
+
+   Standard cells are not placed but can be viewed at the bottom left corner of the layout
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/52661703-58b3-4b96-9b22-3189d3b338ff)
+
+
+## Library Binding and Placement
+### Netlist binding and initial place design
