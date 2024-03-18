@@ -15,8 +15,8 @@
         - [OpenLANE Directory structure in detail](#openlane-directory-structure-in-detail)
         - [Design Preparation Step](#design-preparation-step)
         - [Review files after design prep, run synthesis, and characterize synthesis results](#review-files-after-design-prep-run-synthesis-and-characterize-synthesis-results)
-2. Good floorplan vs bad floorplan and introduction to library cells
-    - Chip FLoor planning considerations
+2. [Good floorplan vs bad floorplan and introduction to library cells](#good-floorplan-vs-bad-floorplan-and-introduction-to-library-cells)
+    - [Chip FLoor planning considerations](#chip-floor-planning-considerations)
       	- [Utilization factor and aspect ratio](#utilization-factor-and-aspect-ratio)
     - Library Binding and Placement
     - Cell design and characterization flows
