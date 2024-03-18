@@ -25,6 +25,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       	- [De-coupling capacitors](#de-coupling-capacitors)
       	- [Power Planning](#power-planning)
       	- [Pin placement and logical cell placement blockage](#pin-placement-and-logical-cell-placement-blockage)
+      	- [Steps to run floorplan using OpenLANE and view floorplan layout in Magic](#steps-to-run-floorplan-using-openlane-and-view-floorplan-layout-in-magic)
     - Library Binding and Placement
     - Cell design and characterization flows
     - General timing characterization parameters
@@ -376,3 +377,54 @@ Once pin/port placement is done, Logical Cell Placement Blockage is created to m
 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/da74db6f-4736-4974-af7c-69479ca352d8)
 
+Floorplan summary:
+
+![pic1](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/4f819810-21f8-45e4-9c1a-390e06aa5997)
+
+### Steps to run floorplan using OpenLANE and view floorplan layout in Magic
+1. Setting configuration variables: Before running floorplan, the configuration variables or switches must be set. These are present in openlane/configuration directory:
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/bcb333f7-8303-4126-ae4c-1e94c77efcd5)
+
+The README.md consists of all configuration variables for every stage and the tcl files contain the default OpenLANE settings. 
+
+2. Default parameters are set for floorplan stage in floorplan.tcl in OpenLANE
+
+3. All configurations/switches accepted by the current run are from openlane/designs/[design]/config.tcl
+
+The priority order from highest to lowest is as follows:
+
+- openlane/designs/[design]/sky130A_sky130_fd_sc_hd_config.tcl
+- openlane/designs/[design]/config.tcl
+- openlane/configuration/floorplan.tcl
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/4b811bb9-f4e9-46d9-812b-3ca988827daf)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/1f37189d-c302-4b1a-96ee-310b1c33900a)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/5449d923-a09c-4efa-8ad9-370dd25b3dca)
+
+In OpenLANE flow, the vertical and horizontal metals are one more than what we specify. If vertical metal is specified as 4, then it'll be 5, same case for horizontal.
+
+4. Run floorplan on OpenLane: % run_floorplan
+5. Floorplan output files are generated in this folder openlane/designs/picorv32a/runs/date/results/floorplan/picorv32a.floorplan.def which is a design exchange format, containing the die area and positions.
+   The die area in this file is in database units and 1 micron is equivalent to 1000 database units.
+   Area of die = (554570/1000) microns * (565290/1000) microns = 311829.1653 um^2
+
+6. To view the layout after floorplan, we use magic tool
+
+   magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/a489217b-1914-46df-837a-de3ba433cf39)
+
+   Press "s" to select whole die then press "v" to center the view
+
+   Point the cursor to a cell then press "s" to select it, zoom into it by pressing "z"
+
+   The IO pins are placed in a random equidistant mode as seen below based on the configuration (FP_IO_MODE = 1) set in openlane/configuration/floorplan.tcl
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/e7c88c04-5747-46a7-ad25-09bd37532ac8)
+
+   The components in the layout can be identified by using the "what" command in tkcon window after selecting it
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/f126ef8d-ca86-4bdd-99a4-bc15a7beae35)
