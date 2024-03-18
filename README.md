@@ -285,3 +285,5 @@ After running synthesis, inside the runs/[date]/results/synthesis is picorv32a_s
 
 ### Concept of pre-placed cells
 2. Define Locations of Preplaced Cells
+   Preplaced cells are reusable complex logic blocks or modules or IPs or macros that is already implemented (memory, clock-gating cell, mux, comparator). The placement of these cells in the core is user-defined 
+   and must be done before placement and routing of other cells. The APR tools will not be able to touch and move these preplaced cells so this must be very well defined. 
