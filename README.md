@@ -364,5 +364,15 @@ Instead of single power supply as before, there are multiple Vdd and Vss lines. 
 
 ### Pin placement and logical cell placement blockage
 
-Let's take below design as an example to be implemented.
+Let's take below design as an example to be implemented. The connectivity information between the gates is coded usign VHDL or Verilog language and is called as netlist.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/d5881fd7-d30e-4ce8-afb0-8a50d2351d64)
+
+The input and output ports are placed on the left and right spaces between the core and the die. The placements of the ports depends on where the cells are placed. The clock ports are bigger in size than data ports since the clocks are driving the cells continuously. So, we need the least resistance paths for the clocks. Bigger the size, lesser the resistance.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/a43d93f6-0edc-4642-ad2b-c6610d70d71c)
+
+Once pin/port placement is done, Logical Cell Placement Blockage is created to make sure that the APR tool does not place any cell on the pin locations.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/da74db6f-4736-4974-af7c-69479ca352d8)
 
