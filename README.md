@@ -129,6 +129,12 @@ Power planning involves the distribution of power supplies and the design of pow
 
 Physical verification like DRC, LVS, and timing verification like STA
 
+DRC: DRC stands for Design Rule Check. The main purpose of DRC is to ensure that the layout adheres to manufacturing guidelines and is compatible with the semiconductor fabrication process. Some of the manufacturing rules are allowable geometries, dimensions, spacing, and other layout parameters. DRC is a critical step in ensuring the manufacturability and reliability of IC designs by detecting and correcting layout errors that could lead to fabrication defects or yield loss during semiconductor manufacturing.
+
+LVS: LVS stands for Layout vs. Schematic. The layout of the chip is compared against the corresponding schematic representation to ensure their consistency and correctness. LVS tools extract netlists from both the layout and schematic representations of the design. The extracted netlists from the layout and schematic are compared to identify any differences. Once LVS clean, the layout is considered verified, and the design can proceed to subsequent stages of the physical design flow.
+
+STA: STA stands for Static Timing Analysis. It evaluates the timing behavior of a digital circuit without considering dynamic factors such as signal transitions and clock skew. It determines whether the design meets setup and hold time constraints, maximum clock frequency, and other timing requirements.
+
 ### Introduction to OpenLANE and Strive chipsets
 OpenLANE is an open-source digital ASIC (Application-Specific Integrated Circuit) design flow developed by efabless and Google, designed to automate the entire RTL-to-GDSII (Register Transfer Level to Graphic Design System II) flow based on several components including OpenROAD, Yosys, Magic, Netgen, CVC, SPEF-Extractor, KLayout and a number of custom scripts for design exploration and optimization.
 
