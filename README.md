@@ -625,7 +625,7 @@ We can see the plot for above inputs. In this the width of both PMOS &NMOS is sa
 2. Parameters that defines the robustness of CMOS
    - switching threshold, Vm. It is the point where the Vin = Vout and both PMOS & NMOS are in saturation region. These will be turned on and there is high chances for leakage. There is a high possibility that the current flows directly from VDD to GND. Due to this, short circuit kind of device is seen.
 
-![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/c9b07bee-c7a1-4f81-9f64-6217373d2bad)
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/55456681-87f5-476c-960a-29930ce22e6c)
 
 ### Static and dynamic simulation of  CMOS inverter
 ### Lab steps to gitclone vsdstdcelldesign
