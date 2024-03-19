@@ -553,3 +553,13 @@ Negative propagation delay is not expected. This means that the output comes bef
 
 
 ## Design library cell using Magic Layout and ngspice characterization
+## Labs for CMOS inverter ngspice simulations
+### IO placer revision
+
+
+
+### SPICE deck creation for CMOS inverter
+### SPICE simulation lab for CMOS inverter
+### Switching Threshold Vm
+### Static and dynamic simulation of  CMOS inverter
+### Lab steps to gitclone vsdstdcelldesign
