@@ -32,7 +32,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
         - [Congestion aware placement using RePlAce](#congestion-aware-placement-using-replace)
     - [Cell design and characterization flows](#cell-design-and-characterization-flows)
     - [Timing characterization](#timing-characterization)
-3. Design library cell using Magic Layout and ngspice characterization
+3. [Design library cell using Magic Layout and ngspice characterization]
     - Labs for CMOS inverter ngspice simulations
 4. Pre-layout timing analysis and importance of good clock tree
 5. Final steps for RTL2GDS using tritonRoute and openSTA
@@ -541,7 +541,7 @@ The red is input waveform and blue is output waveform of the buffer. The left si
 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/b0635552-7e0d-441e-bdb4-e9d7e88ccd20)
 
-propagation delay = ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/5d6a6c94-df95-487b-a48b-aad79a15a90f)
+propagation delay = ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/c363d35c-e6b8-4183-91cc-bd726d1a6412)
 
 transition time = ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/d657c396-1726-43b9-a3c5-13dcf4046df3)
 
