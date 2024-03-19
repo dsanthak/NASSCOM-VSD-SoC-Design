@@ -32,7 +32,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
         - [Congestion aware placement using RePlAce](#congestion-aware-placement-using-replace)
     - [Cell design and characterization flows](#cell-design-and-characterization-flows)
     - [Timing characterization](#timing-characterization)
-3. [Design library cell using Magic Layout and ngspice characterization]
+3. [Design library cell using Magic Layout and ngspice characterization](#design-library-cell-using-magic-layout-and-ngspice-characterization)
     - Labs for CMOS inverter ngspice simulations
 4. Pre-layout timing analysis and importance of good clock tree
 5. Final steps for RTL2GDS using tritonRoute and openSTA
