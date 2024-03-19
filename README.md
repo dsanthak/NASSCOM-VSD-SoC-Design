@@ -561,8 +561,15 @@ Negative propagation delay is not expected. This means that the output comes bef
 ## Design library cell using Magic Layout and ngspice characterization
 ## Labs for CMOS inverter ngspice simulations
 ### IO placer revision
+Configuration settings in OpenLANE can be changed in the shell itself, on the fly. For example, to make IO_mode not to be "random equidistant",
 
+% set ::env(FP_IO_MODE) 2 in OpenLANE. 
 
+The IO pins will not be equidistant in mode 2 (default of 1). On re-running floorplan, we can see that the pins are placed based more or less on Hungarian algorithm. However, changing the configuration on the fly will not change the runs/config.tcl, the configuration will only be available on the current session. 
+
+To echo current value of variable,
+
+echo $::env(FP_IO_MODE)
 
 ### SPICE deck creation for CMOS inverter
 ### SPICE simulation lab for CMOS inverter
