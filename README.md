@@ -523,3 +523,33 @@ Steps 1 to 8 are fed in the form of configuration file to the characterization s
 
 
 ## Timing characterization
+Syntax and semantics of power.lib, timing.lib and noise.lib. These are necessary to understand the GUNA software workflow.
+
+We are taking inverters connected back to back as an example.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/12d86746-05a4-4c7f-9607-df61537061b0)
+
+Timing thershold definitions:
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/8a5faedb-e2f4-489f-91ca-830fb9f91897)
+
+Two inverters in series, red is output of first inverter and blue is output of second inverter:
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/f3199590-dc7c-40a1-9727-6559e45cc0a6)
+
+The red is input waveform and blue is output waveform of the buffer. The left side is rise delay and right side is fall delay.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/b0635552-7e0d-441e-bdb4-e9d7e88ccd20)
+
+propagation delay = ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/5d6a6c94-df95-487b-a48b-aad79a15a90f)
+
+transition time = ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/d657c396-1726-43b9-a3c5-13dcf4046df3)
+
+Negative propagation delay is not expected. This means that the output comes before the input so it's important to choose correct threshold point to produce positive delay. Delay threshold is usually 50% and slew rate threshold is usually 20%-80%.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/bd271e0c-2cb2-4abe-9e12-8c131e04c6c9)
+
+
+
+
+## Design library cell using Magic Layout and ngspice characterization
