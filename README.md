@@ -31,8 +31,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
         - [Optimize placement using estimated wire-length and capacitance](#optimize-placement-using-estimated-wire-length-and-capacitance)
         - [Congestion aware placement using RePlAce](#congestion-aware-placement-using-replace)
     - [Cell design and characterization flows](#cell-design-and-characterization-flows)
-        - [Cell design flow](#cell-design-flow)
-    - General timing characterization parameters
+    - [Timing characterization](#timing-characterization)
 3. Design library cell using Magic Layout and ngspice characterization
     - Labs for CMOS inverter ngspice simulations
 4. Pre-layout timing analysis and importance of good clock tree
@@ -478,7 +477,6 @@ Command: magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky
 
 
 ## Cell design and characterization flows
-### Cell design flow
 All standards cells (AND, OR, BUFFER, INVERTER, flip-flops etc.) are present in standard cell library. The cells inside the library are of different flavors (different drive strengths, functionality, threshold voltage). If the cell size is more, then the drive strength is high to drive longer wires. If the threshold voltage is high, then it will take more time to switch than the one with lesser threshold voltage.
 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/07045aca-5d9f-43d8-a110-7beca2453777)
@@ -489,7 +487,7 @@ Cell design is done as shown in the below picture:
 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/4c3d9e0b-4de7-46d7-be37-356a40dd3406)
 
-- DRC & LVS Rules: tech files and poly subtrate parameters
+- DRC & LVS Rules: tech files and poly substrate parameters
 - SPICE Models: Threshold, linear regions, saturation region equations with added foundry parameters, including NMOS and PMOS parameteres
 - User defined Spec: Cell height, cell width (drive strength), supply voltage, pin locations, metal layer requirement
 
@@ -500,3 +498,28 @@ Cell design is done as shown in the below picture:
 Summary:
 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/60d2a376-d8c7-4b91-994c-2c4e81c76bf2)
+
+Steps of characterization flow:
+
+1. Read the spice model files
+2. Read the extracted spice netlist
+3. Define/Recognise the buffer behavior
+4. Read the subcircuits
+5. Attach the necessary power sources
+6. Apply stimulus
+7. provide necessary output capacitance
+8. provide simulation command
+
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/45406ca7-4cfc-452b-829c-3c301e11dd0e)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/364f6bae-6ac0-4d17-921d-688bfbb90dec)
+
+Steps 1 to 8 are fed in the form of configuration file to the characterization software called "GUNA". 
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/e9dbf76f-c663-4dc0-b3c6-15f62308f6b5)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/c3e0ba61-2bfd-4916-aee2-5549f8285e8b)
+
+
+## Timing characterization
