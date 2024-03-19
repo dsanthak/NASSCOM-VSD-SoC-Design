@@ -485,9 +485,18 @@ All standards cells (AND, OR, BUFFER, INVERTER, flip-flops etc.) are present in 
 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/5a2cfb59-55aa-4368-8937-37364b70f3c4)
 
-Cell design is done in 3 parts:
+Cell design is done as shown in the below picture:
 
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/4c3d9e0b-4de7-46d7-be37-356a40dd3406)
 
 - DRC & LVS Rules: tech files and poly subtrate parameters
 - SPICE Models: Threshold, linear regions, saturation region equations with added foundry parameters, including NMOS and PMOS parameteres
 - User defined Spec: Cell height, cell width (drive strength), supply voltage, pin locations, metal layer requirement
+
+- The standard cell library developer must adhere to the rules given so that when the cell can be used on a real design without any errors
+- Circuit design is done modeling the pmos and nmos to meet input library requirement
+- Layout design is done using Euler's path and stick diagram on Magic layout tool
+  
+Summary:
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/60d2a376-d8c7-4b91-994c-2c4e81c76bf2)
