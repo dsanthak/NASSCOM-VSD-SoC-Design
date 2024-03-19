@@ -597,9 +597,35 @@ SPICE deck netlist description:
 
 SPICE simulation:
 
-scenario: ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/5e9b45c6-492d-4d6b-96a7-90d4d189540e)
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/97b84252-81bd-4898-94fe-5476aafc94df)
 
+The steps to follow for SPICE simulation,
+
+1. Go to ngspice simulator
+2. Source the .cir spice deck file
+4. Execute the spice file by command: run
+5. Execute command: setplot --> allows you to view any plots possible from the simulations specified in the spice deck
+6. Select the simulation desired by entering the simulation name in the terminal
+7. Execute command: display --> to see which nodes available for plotting
+8. Execute command: plot out vs in
+We can see the plot for above inputs. In this the width of both PMOS &NMOS is same.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/ec9452b7-483b-46cf-a09d-d6af56565072)
+
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/83dec14d-90d5-4880-83e2-cdf37b10aa2b)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/65ea561b-3f8e-4b31-889d-11a30652f5c0)
 
 ### Switching Threshold Vm
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/c3860c9b-cb7c-412e-aa27-1211dd9d632a)
+
+1. The shapes are almost the same which means that CMOS is a robust device.
+2. Parameters that defines the robustness of CMOS
+   - switching threshold, Vm. It is the point where the Vin = Vout and both PMOS & NMOS are in saturation region. These will be turned on and there is high chances for leakage. There is a high possibility that the current flows directly from VDD to GND. Due to this, short circuit kind of device is seen.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/c9b07bee-c7a1-4f81-9f64-6217373d2bad)
+
 ### Static and dynamic simulation of  CMOS inverter
 ### Lab steps to gitclone vsdstdcelldesign
