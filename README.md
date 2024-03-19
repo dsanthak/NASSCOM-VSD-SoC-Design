@@ -563,16 +563,43 @@ Negative propagation delay is not expected. This means that the output comes bef
 ### IO placer revision
 Configuration settings in OpenLANE can be changed in the shell itself, on the fly. For example, to make IO_mode not to be "random equidistant",
 
-% set ::env(FP_IO_MODE) 2 in OpenLANE. 
+% set ::env(FP_IO_MODE) 2 
 
-The IO pins will not be equidistant in mode 2 (default of 1). On re-running floorplan, we can see that the pins are placed based more or less on Hungarian algorithm. However, changing the configuration on the fly will not change the runs/config.tcl, the configuration will only be available on the current session. 
+The IO pins will not be equidistant in mode 2 (default of 1). On re-running floorplan, we can see that the pins are placed based on of the Hungarian algorithms. The pins are stacked one over the other. However, changing the configuration on the fly will not change the runs/config.tcl, the configuration will only be available on the current session. 
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/613cf32c-f7a5-4f3c-a301-362dac2dacd5)
 
 To echo current value of variable,
 
 echo $::env(FP_IO_MODE)
 
-### SPICE deck creation for CMOS inverter
-### SPICE simulation lab for CMOS inverter
+### SPICE deck creation and simulation for CMOS inverter
+SPICE deck comprises of connectivity information about the netlist, inputs to be provided to the simulation, information on tap points at which output will be taken and so on.
+Component values in SPICE DECK: For PMOS, W/L (0.375u/0.25u means width is 375nm and lengthis 250nm). PMOS should be wider (atleast 2x or 3x) than NMOS. PMOS hole carrier is slower than NMOS electron carrier mobility, so to match the rise and fall time, PMOS must be wider (less resistance thus higher mobility) than NMOS. But in this case, we are taking same sizes for both PMOS and NMOS. The gate voltage is normally a multiple of length (250nm) (in the example, gate voltage can be 2.5V)
+
+SPICE deck:
+
+- component connectivity
+- component values
+- identify nodes
+- name nodes
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/3e35dadb-ae85-490b-9e84-ed726d58280d)
+
+SPICE deck netlist description:
+
+- Syntax for the PMOS and NMOS: [component name] [drain] [gate] [source] [substrate] [transistor type] W=[width] L=[length]
+- All components are described based on nodes and its values
+- .op is the start of SPICE simulation operation where Vin will be sweep from 0 to 2.5 with 0.05V steps
+- tsmc_025um_model.mod is the model file containing the technological parameters for the 0.25um NMOS and PMOS
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/8cf32654-851d-46a4-9f94-6933a3860130)
+
+SPICE simulation:
+
+scenario: ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/5e9b45c6-492d-4d6b-96a7-90d4d189540e)
+
+
 ### Switching Threshold Vm
 ### Static and dynamic simulation of  CMOS inverter
 ### Lab steps to gitclone vsdstdcelldesign
