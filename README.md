@@ -31,7 +31,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
         - [Optimize placement using estimated wire-length and capacitance](#optimize-placement-using-estimated-wire-length-and-capacitance)
         - [Congestion aware placement using RePlAce](#congestion-aware-placement-using-replace)
     - [Cell design and characterization flows](#cell-design-and-characterization-flows)
-   	- [Inputs for cell design flow](#inputs-for-cell-design-flow)
+        - [Cell design flow](#cell-design-flow)
     - General timing characterization parameters
 3. Design library cell using Magic Layout and ngspice characterization
     - Labs for CMOS inverter ngspice simulations
@@ -478,10 +478,16 @@ Command: magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky
 
 
 ## Cell design and characterization flows
-### Inputs for cell design flow
+### Cell design flow
 All standards cells (AND, OR, BUFFER, INVERTER, flip-flops etc.) are present in standard cell library. The cells inside the library are of different flavors (different drive strengths, functionality, threshold voltage). If the cell size is more, then the drive strength is high to drive longer wires. If the threshold voltage is high, then it will take more time to switch than the one with lesser threshold voltage.
 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/07045aca-5d9f-43d8-a110-7beca2453777)
 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/5a2cfb59-55aa-4368-8937-37364b70f3c4)
 
+Cell design is done in 3 parts:
+
+
+- DRC & LVS Rules: tech files and poly subtrate parameters
+- SPICE Models: Threshold, linear regions, saturation region equations with added foundry parameters, including NMOS and PMOS parameteres
+- User defined Spec: Cell height, cell width (drive strength), supply voltage, pin locations, metal layer requirement
