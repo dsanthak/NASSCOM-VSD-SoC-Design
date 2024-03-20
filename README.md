@@ -787,3 +787,5 @@ Snippet of created spice file:
 
 
 ## Sky130 Tech File Labs
+
+1. Lab steps to create final SPICE deck using Sky130 tech
