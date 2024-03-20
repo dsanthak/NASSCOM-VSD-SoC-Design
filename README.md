@@ -665,3 +665,74 @@ Snippet of sky130_inv:
 
 
 ## Inception of Layout CMOS fabrication process
+
+CMOS Fabrication Process (16-Mask CMOS Process):
+
+1. Select a substrate
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/cc2da528-6b95-4ebe-a0cd-ebf7855e1903)
+
+2. Create active region for transistors
+
+   - Deposit Silicon Dioxide (SiO2) on the substrate
+   - Deposit Silicon Nitride (Si3N4). It is a protection layer to prevent SiO2 layer to grow during oxidation
+   - Deposit a layer of photoresist
+   - Deposit mask-1 layer on top of photoresist. It covers the photoresist layer that must not be etched away (protects the two transistor active regions)
+   - UV light is applied to remove unmasked portions
+   - Remove mask-1 and photoresist layers
+   - Place in furnace to grow the oxide in the other areas
+   - Remove the Si3N4 layer using hot phosphoric acid to have only p-substrate and Sio2
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/f77a9df7-05ca-4e84-8141-e59de31cab37)
+
+3. N-Well and P-Well formation
+
+   - Deposit photo resist layer to define the areas to protect
+   - Deposit mask-2. Mask 2 protects the N-Well (PMOS side) while P-Well (NMOS side) is being fabricated then Mask 3 protects P-Well while N-Well is being formed
+   - UV light is applied, and the exposed area of photoresist will be removed
+   - Boron is used to form P-Well
+   - Phosporus is used to form N-well
+   - Place in furnace to diffuse boron and phosphorous to form wells. This process is called Twintub process.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/9ede667d-dce9-49b0-ac8a-1392f286cc77)
+
+4. Formation of gate terminal
+
+   Gate terminal is where the threshold voltage is controlled.
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/db8cc5a9-16dd-4626-a4a1-349c8ea75295)
+
+   - Deposit photo resist layer to define the areas to protect
+   - Deposit mask-4
+   - UV light is applied, and the exposed area of photoresist will be removed
+   - Implant low energy boron at the surface of p-well using mask-4 to control the threshold
+   - Implant phosphorous/arsenic for n-well using mask-5
+   - Fix the oxide which is damaged by implantation steps by removing extra SiO2 using the hydroflouric acid and re-grow high quality SiO2 on p-substrate to contol the oxide thickness
+   - Add polysilicon film
+   - Add mask-6 and etch using photolithography
+   - Etch off to form the gate terminal
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/c13e82e6-092c-4e35-a2d8-1da5cb3f4aa0)
+
+5. Lightly Doped Drain (LDD) formation
+
+   Two reasons for LDD: hot electron effect & short channel effect
+
+   - Mask 7 for NMOS (lightly doped N-type)
+   - Mask 8 for PMOS (lightly doped P-type)
+   - Heavily doped impurity (N+ for NMOS and P+ for PMOS) is for the actual source and drain but the lightly doped impurity will help maintain spacing between the source and drain and 
+     prevent hot electron effect and short channel effect.
+   - To protect the lightly doped regions, add SiO2 and create spacers using plasma anisotropic etching
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/898818da-7ec1-4d9f-8ed1-c8655d265658)
+
+6. Source and Drain formation
+
+   - Thin screen oxide is formed to avoid channeling. Channeling is when implantations dig too deep into substrate.
+   - Mask-9 is for N+ implantation and Mask-10 for P+ implantation
+   - The side wall spacers maintain the N-/P- while implanting the N+/P+
+   - High temperature annealing is done
+  
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/8207632b-287e-4d4f-a5c8-b570abeba412)
+
+7. Local interconnect formation
