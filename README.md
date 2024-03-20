@@ -736,3 +736,27 @@ CMOS Fabrication Process (16-Mask CMOS Process):
    ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/8207632b-287e-4d4f-a5c8-b570abeba412)
 
 7. Local interconnect formation
+
+   - Contacts and interconnects are important to control the electrical characteristics by the designer.
+   - Remove thin screen oxide to open up the source, drain and gate for building the contacts.
+   - Titanium has less resistance and hence used
+   - TiSi2 is used for local interconnects
+   - Mask 11 is formed and TiN is etched off using RCA cleaning to create first level contact
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/e851f228-149a-41f6-9d7a-cad7ff863034)
+
+8. Higher level metal formation
+
+   - CMP (Chemical Mechanical Polishing) technique to planarize the surface
+   - Create contact holes using photolithograhy process
+   - Mask 12 is for first contact hole
+   - Mask 13 is for first Aluminum contact layer
+   - Mask 14 is for second contact hole
+   - Mask 15 is for second Aluminum contact layer
+   - Mask 16 is for making contact to topmost layer
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/377ec3d4-ce5a-402e-8cc2-85dd676789be)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/20bd9dd0-87b9-46d0-8a84-e717aef9245d)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/551b341e-6c35-420e-8aef-8bd0fbfa8916)
