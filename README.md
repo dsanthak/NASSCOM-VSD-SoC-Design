@@ -837,4 +837,13 @@ Snippet of created spice file:
 
 [Magic Tutorial](http://opencircuitdesign.com/magic/)
 
-3. 
+3. Lab introduction to Sky130 pdk's and steps to download labs
+
+   Commands to download and view the corrupted skywater process magic tech file and other files to perform drc corrections:
+
+   - Command to download the lab files: wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz
+   - Extract it: tar xfz drc_tests.tgz
+   - Change directory into the lab folder: cd drc/drc_tests
+   - List all files: ls -al
+   - Command to open magic tool: magic -d XR
+   
