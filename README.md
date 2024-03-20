@@ -37,7 +37,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
         - [IO placer revision](#io-placer-revision)
         - [SPICE deck creation and simulation for CMOS inverter](#spice-deck-creation-and-simulation-for-cmos-inverter)
         - [Switching Threshold Vm](#switching-threshold-vm)
-        - [Static and dynamic simulation of  CMOS inverter](#static-and-dynamic-simulation-of-cmos-inverter)
+        - [Static and dynamic simulation of  CMOS inverter](#static-and-dynamic-simulation-of--cmos-inverter)
         - [Lab steps to gitclone vsdstdcelldesign](#lab-steps-to-gitclone-vsdstdcelldesign)
 4. Pre-layout timing analysis and importance of good clock tree
 5. Final steps for RTL2GDS using tritonRoute and openSTA
