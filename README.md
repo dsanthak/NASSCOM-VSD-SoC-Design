@@ -760,3 +760,6 @@ CMOS Fabrication Process (16-Mask CMOS Process):
    ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/20bd9dd0-87b9-46d0-8a84-e717aef9245d)
 
    ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/551b341e-6c35-420e-8aef-8bd0fbfa8916)
+
+
+## Lab introduction to Sky130 basic layers layout and LEF using inverter
