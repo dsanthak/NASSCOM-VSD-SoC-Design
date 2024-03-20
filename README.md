@@ -647,3 +647,17 @@ When a pulse is applied to the CMOS, transient analysis is used to find propagat
 
 
 ### Lab steps to gitclone vsdstdcelldesign
+Instead of designing an inverter from scratch, a github repository where this is already done is cloned to observe the layout.
+1. Clone custom inverter standard cell design from [github repository](https://github.com/nickson-jose/vsdstdcelldesign)
+2. Change directory to openlane: cd ~/Desktop/work/tools/openlane_working_dir/openlane
+3. Clone the repository with custom inverter design: git clone https://github.com/nickson-jose/vsdstdcelldesign
+4. Copy tech file to the vsdstdcelldesign directory: cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign/
+5. Open custom inverter layout in magic: magic -T sky130A.tech sky130_inv.mag &
+
+Snippet of commands executed:
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/f103856c-febe-4182-9a64-a5c758dc1414)
+
+Snippet of sky130_inv:
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/ef7f9cb4-7a41-4f98-95a0-6757aa8fea16)
