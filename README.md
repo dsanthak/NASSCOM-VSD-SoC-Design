@@ -40,6 +40,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
         - [Static and dynamic simulation of  CMOS inverter](#static-and-dynamic-simulation-of--cmos-inverter)
         - [Lab steps to gitclone vsdstdcelldesign](#lab-steps-to-gitclone-vsdstdcelldesign)
     - [Inception of Layout CMOS fabrication process](#inception-of-layout-cmos-fabrication-process)
+    - Lab introduction to Sky130 basic layers layout and LEF using inverter
 4. Pre-layout timing analysis and importance of good clock tree
 5. Final steps for RTL2GDS using tritonRoute and openSTA
 
@@ -763,3 +764,21 @@ CMOS Fabrication Process (16-Mask CMOS Process):
 
 
 ## Lab introduction to Sky130 basic layers layout and LEF using inverter
+
+![picc1](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/14fd56d9-f1b6-4b4d-87a7-8b8b8f372a72)
+
+In sky130A, the first layer is local-interconnect layer or local-i and then the m1, m2 and so on. Power and Ground lines are in m1. When polysilicon crosses ndiffusion the it is NMOS and if polysilicon crosses pdiffusion then it is PMOS is created. The output of the layout is the LEF file. It is used by the router in APR to get the location of standard cell pins to route them properly. So it is basically the abstract form of layout of a standard cell. 
+
+Commands in tkcon window for spice extraction of the custom inverter layout:
+
+1. extract all
+2. ext2spice cthresh 0 rthresh 0  --> this extracts the parasitic information
+3. ext2spice
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/f1c001f2-ade4-4866-ab6e-8077d6964251)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/11b15341-3441-4cec-aeac-7d8bdbc9fdea)
+
+Snippet of created spice file:
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/23c913c2-2dad-4b71-9295-c714fb50b41c)
