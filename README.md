@@ -789,3 +789,46 @@ Snippet of created spice file:
 ## Sky130 Tech File Labs
 
 1. Lab steps to create final SPICE deck using Sky130 tech
+
+   The default SPICE deck file using Sky130 is as seen in the previous section. Now we modify the file to plot a transient response. The final SPICE deck file is as below.
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/00c47949-53cf-427e-83b0-3a6b0fde0d55)
+
+   Command to load spice file for simulation in ngspice:
+
+   ngspice sky130A_inv.spice
+
+   Generate a graph using:
+
+   plot y vs time a
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/cf5e9b25-c029-4ba2-b739-d66bb72499b2)
+
+2. Lab steps to characterize inverter using sky130 model files
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/b175ae32-7e3d-4eb2-93ab-92b7847bb259)
+
+   Using the above transient plot, we will now characterize the slew rate and propagation delay:
+
+   Maximum voltage = 3.3V
+   80% of maximum voltage = 2.64V
+   20% of maximum voltage = 0.64V
+   50% of maximum voltage = 1.65V
+
+   - Rise Transition (output transition time from 20% to 80%):
+     - Tr_r = 2.20278ns - 2.15946ns = 0.04332ns
+       ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/194495b1-6c75-42e6-9680-f1bea4f111f0)
+
+   - Fall Transition (output transition time from 80% to 20%):
+     - Tr_f = 4.06818ns - 4.04073ns = 0.02745ns
+       ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/c5d35b66-fd83-4d3e-a318-00e74a64a971)
+
+   - Rise Delay (delay between 50% of input and 50% of output) that is time taken for output to rise to 50% and time taken for input to fall to 50%:
+     - D_r = 2.18381ns - 2.15003ns = 0.03378ns
+       ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/2599bcf8-c7d8-4935-b1ca-174083e6193d)
+
+   - Fall Delay (delay between 50% of input and 50% of output) that is time taken for output to fall to 50% and time taken for input to rise to 50%:
+     - D_f = 4.05402ns - 4.0501ns = 0.00392ns
+       ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/c1f552bf-a103-4b7b-9796-4c92c3c1625c)
+
+3. 
