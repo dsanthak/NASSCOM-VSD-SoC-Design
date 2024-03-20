@@ -627,5 +627,18 @@ We can see the plot for above inputs. In this the width of both PMOS &NMOS is sa
 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/55456681-87f5-476c-960a-29930ce22e6c)
 
+   - Propagation delay: rise or fall delay
+
 ### Static and dynamic simulation of  CMOS inverter
+DC transfer analysis is used for finding switching threshold. Simulation is DC sweep from 0V to 2.5V with 0.05V steps:
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/813c19bb-817f-40e6-ab13-b87c857cb4a6)
+
+When a pulse is applied to the CMOS, transient analysis is used to find propagation delay.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/473d0b0a-f0be-481e-8986-a72a1e061708)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/1105af46-2711-4a19-87cb-91a205ccdb22)
+
+
 ### Lab steps to gitclone vsdstdcelldesign
