@@ -43,7 +43,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
     - [Lab introduction to Sky130 basic layers layout and LEF using inverter](#lab-introduction-to-sky130-basic-layers-layout-and-lef-using-inverter)
     - [Sky130 Tech File Labs](#sky130-tech-file-labs)
 4. [Pre-layout timing analysis and importance of good clock tree](#pre-layout-timing-analysis-and-importance-of-good-clock-tree)
-    - Timing modelling using delay tables
+    - [Timing modelling using delay tables](#timing-modelling-using-delay-tables)
       - Lab steps to convert grid info to track info
       - Lab steps to convert magic layout to std cell LEF
     - Timing analysis with ideal clocks using openSTA
