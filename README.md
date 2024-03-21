@@ -923,4 +923,18 @@ From PnR point of view, there are few guidelines to be followed while making sta
 - The input and output ports lies at the intersection of the horizontal and vertical tracks (ensure the routes can reach that ports).
 - The width of the standard cell must be odd multiple of the tracks horizontal pitch and height must be odd multiples of tracks vertical pitch
 
-The ~/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tracks.info contains track information.
+Tracks refer to the horizontal and vertical metal layers on which routing occurs. The grid formed by the intersection of horizontal and vertical tracks creates a routing grid, also known as a routing matrix. The ~/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tracks.info contains track information.
+
+Before changing grid:
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/ab0effdf-91f0-4219-a4bb-051db697ffcc)
+
+After changing grid values:
+
+![picc3](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/d8b70a3e-7253-435b-9148-d0767108f9fa)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/1a66df50-f391-4406-bacb-526d97f4c17a)
+
+![picc4](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/f9797453-c3de-4d67-b6f4-b0a5a8261467)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/c12da0da-5f3d-47e3-8717-c07635fd5304)
