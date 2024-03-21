@@ -916,3 +916,11 @@ Snippet of created spice file:
 
 ## Pre-layout timing analysis and importance of good clock tree
 ## Timing modelling using delay tables
+### Lab steps to convert grid info to track info
+sky130_inv.mag contains all information like PG information, port information, logic etc. OpenLANE is a PnR tool and a PnR tool does not require all the information present in .mag file. The only information that we'll be needing is the boundary, power and ground rails, and the inputs & outputs. This is the reason of using .lef files. So the objective is to extract the LEF file from Magic file and plug into picorv32a design.
+
+From PnR point of view, there are few guidelines to be followed while making standard cell,
+- The input and output ports lies at the intersection of the horizontal and vertical tracks (ensure the routes can reach that ports).
+- The width of the standard cell must be odd multiple of the tracks horizontal pitch and height must be odd multiples of tracks vertical pitch
+
+The ~/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tracks.info contains track information.
