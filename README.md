@@ -866,3 +866,48 @@ Snippet of created spice file:
 
      ![picc2](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/261249dc-dcf1-460d-8485-011f50269748)
 
+5. Lab exercise to fix poly.9 error in Sky130 tech-file
+
+   - In tkcon window: load poly
+
+     ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/18d5ca00-06e6-4861-a1e9-0bd3c354d701)
+
+   - Let's look at rule poly.9
+     As described in [Rules for SkyWater SKY130 PDK](https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html#rules-periphery--page-root), Poly resistor spacing to poly or spacing 
+     (no overlap) to diff/tap should be atleast 0.48um
+
+     ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/27c73e99-dd7b-447e-a64f-4cff4722a241)
+
+     ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/1cbaf61d-60ec-4a95-8ca4-0db455c857e6)
+
+     That's not the case here, so we have to fix the tech file to include this DRC.
+
+   - Open sky130A.tech file in drc_tests directory. The included rules for poly.9 are only for the spacing between the n-poly resistor with n-diffusion and the spacing between the p-poly 
+     resistor with diffusion. We will now add new rules for the spacing between the poly resistor with poly non-resistor. Highlighted in green below are the two newly added rules. First 
+     one is the rule for the spacing between the p-poly resistor with poly non-resistor and the next one is the rule for spacing between n-poly resistor with poly non-resistor. The 
+     allpolynonres is a macro under alias section of techfile.
+
+     ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/643faa77-a7e9-4fff-ba12-08d5647e7c55)
+
+     ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/63b02add-7d73-4f8c-9c7e-fbff2f005479)
+
+   - In tkcon window: tech load sky130A.tech
+     to check drc in tkcon window: drc check
+
+     The new DRC rules will now take effect.
+
+     ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/56631851-0977-4972-9e7c-c348cbf65980)
+
+6. Lab exercise to implement poly resistor spacing to diff and tap
+
+   To fix what is hown in below pic, modify the tech file to include not only the spacing between npolyres with N-substrate diffusion in poly.9 but also between npolyres and all types of 
+   diffusion. 
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/7aafe008-ba80-41c1-b6be-6397e56180c1)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/00dfcc07-49b0-4353-85ec-97ecd60db094)
+
+
+
+
+## Pre-layout timing analysis and importance of good clock tree
