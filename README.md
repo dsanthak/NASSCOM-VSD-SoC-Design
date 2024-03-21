@@ -44,8 +44,8 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
     - [Sky130 Tech File Labs](#sky130-tech-file-labs)
 4. [Pre-layout timing analysis and importance of good clock tree](#pre-layout-timing-analysis-and-importance-of-good-clock-tree)
     - [Timing modelling using delay tables](#timing-modelling-using-delay-tables)
-      - Lab steps to convert grid info to track info
-      - Lab steps to convert magic layout to std cell LEF
+      - [Lab steps to convert grid info to track info](#lab-steps-to-convert-grid-info-to-track-info)
+      - [Lab steps to convert magic layout to std cell LEF](#lab-steps-to-convert-magic-layout-to-std-cell-lef)
     - Timing analysis with ideal clocks using openSTA
     - Clock Tree Synthesis TritonCTS and signal integrity
     - Timing analysis with real clocks using openSTA
