@@ -847,3 +847,22 @@ Snippet of created spice file:
    - List all files: ls -al
    - Command to open magic tool: magic -d XR
    
+4. Lab introduction to Magic and steps to load Sky130 tech-rules
+
+   Useful websites:
+
+   [Magic Technology File Format Manual](http://opencircuitdesign.com/magic/techref/maint2.html) - This site explains about tech files. All technology specific information comes from a 
+   technology file. This file includes information as layer types, electrical connectivity, design rules, rules for mask generation, rules for extracting netlists etc.
+
+   [Rules for SkyWater SKY130 PDK](https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html#rules-periphery--page-root)
+
+   Steps:
+
+   - Open magic with met3.mag as input
+
+     ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/85697e45-1cd4-48e8-bbcd-010b0b701535)
+
+   - In this view, we see a number of independent layouts containing some DRC errors
+
+     ![picc2](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/261249dc-dcf1-460d-8485-011f50269748)
+
