@@ -44,6 +44,8 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
     - [Sky130 Tech File Labs](#sky130-tech-file-labs)
 4. [Pre-layout timing analysis and importance of good clock tree](#pre-layout-timing-analysis-and-importance-of-good-clock-tree)
     - Timing modelling using delay tables
+      - Lab steps to convert grid info to track info
+      - Lab steps to convert magic layout to std cell LEF
     - Timing analysis with ideal clocks using openSTA
     - Clock Tree Synthesis TritonCTS and signal integrity
     - Timing analysis with real clocks using openSTA
@@ -935,6 +937,12 @@ After changing grid values:
 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/1a66df50-f391-4406-bacb-526d97f4c17a)
 
+This satisfies the first guideline mentioned above.
+
 ![picc4](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/f9797453-c3de-4d67-b6f4-b0a5a8261467)
 
-![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/c12da0da-5f3d-47e3-8717-c07635fd5304)
+Second requirement is satisfied in below picture.
+
+![picc5](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/1e39713b-8d62-4591-be00-b6d6acb506c7)
+
+### Lab steps to convert magic layout to std cell LEF
