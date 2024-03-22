@@ -46,6 +46,8 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
     - [Timing modelling using delay tables](#timing-modelling-using-delay-tables)
       - [Lab steps to convert grid info to track info](#lab-steps-to-convert-grid-info-to-track-info)
       - [Lab steps to convert magic layout to std cell LEF](#lab-steps-to-convert-magic-layout-to-std-cell-lef)
+      - [Introduction to timing libs and steps to include new cell in synthesis]
+      - [Introduction to delay tables]
     - Timing analysis with ideal clocks using openSTA
     - Clock Tree Synthesis TritonCTS and signal integrity
     - Timing analysis with real clocks using openSTA
@@ -952,3 +954,41 @@ Next, save the .mag file with a new filename.
 In the tcon terminal: lef write 
 
 It will generate a LEF file with the new filename.
+
+LEF file:
+
+![picc6](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/1c5bd87f-165b-438a-9f4f-dae39cc61c3f)
+
+### Introduction to timing libs and steps to include new cell in synthesis
+
+Inside pdks/sky130A/libs.ref/sky130_fd_sc_hd/lib/ are the liberty timing files for SKY130 PDK which contains the timing and power parameters for each cell needed in STA. It can either be slow, typical, fast with different supply voltages (1v80, 1v65, 1v95). These are called PVT corners. The library name sky130_fd_sc_hd__ss_025C_1v80 describes the PVT corner as slow-slow (delay is maximum), 25° Celsius temperature, at 1.8V power supply. Timing and power parameter of a cell is obtained by simulating the cell in a variety of operating conditions (different corners) and these data are represented in the liberty file. The liberty file characterizes all cells and is used during ABC mapping during synthesis stage which maps the generic cells to the actual standard cells available in the liberty file. 
+
+1. Copy the extracted lef file sky130_vsdinv.lef and the liberty files sky130*.lib from /openlane/vsdstdcelldesign/libs to the src directory of picorv32a.
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/97ee9fb9-59d8-4680-85ce-138544293099)
+
+2. Add the folowing to config.tcl inside the picorv32a:
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/d56d0fb4-b410-40e0-81f6-f8dfe2c19c80)
+
+   This sets the liberty file that will be used for ABC mapping of synthesis (LIB_SYNTH) and for STA (_FASTEST,_SLOWEST,_TYPICAL) and also the extra LEF files (EXTRA_LEFS) for the 
+   customized inverter cell.
+
+3. Run docker and prepare the design picorv32a. Plug the new lef file to the OpenLANE flow.
+
+   docker
+   ./flow.tcl -interactive
+   package require openlane 0.9
+   prep -deign picorv32a
+   set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+   add_lefs -src $lefs
+
+4. Next run_synthesis. sky130_vsdinv cell is successfully included in the design
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/62316c7a-6b01-489d-8100-aa65439036e8)
+
+5. However timing is not met, so it has to be fixed
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/f638c9e7-82ec-47f8-ba2a-a1da768d6681)
+
+### Introduction to delay tables
