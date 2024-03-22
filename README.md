@@ -946,3 +946,9 @@ Second requirement is satisfied in below picture.
 ![picc5](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/1e39713b-8d62-4591-be00-b6d6acb506c7)
 
 ### Lab steps to convert magic layout to std cell LEF
+LEF (Library Exchange Format) file is a standard file format used to describe the physical layout and characteristics of standard cell libraries or macro libraries. LEF files contain detailed information about the geometric shapes, sizes, layers, and other physical properties of individual cells or macros within the library. The instructions to set the port definitions are in this [site](https://github.com/nickson-jose/vsdstdcelldesign#create-port-definition)
+
+Next, save the .mag file with a new filename. 
+In the tcon terminal: lef write 
+
+It will generate a LEF file with the new filename.
