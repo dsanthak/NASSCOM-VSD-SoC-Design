@@ -53,7 +53,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       - [Setup timing analysis and introduction to flip-flop setup time](#setup-timing-analysis-and-introduction-to-flip-flop-setup-time)
       - [Introduction to clock jitter and uncertainty](#introduction-to-clock-jitter-and-uncertainty)
       - [Lab steps to configure OpenSTA for post-synth timing analysis](#lab-steps-to-configure-opensta-for-post-synth-timing-analysis)
-      - [Lab steps to optimize synthesis to reduce setup violations]
+      - [Lab steps to optimize synthesis to reduce setup violations](#lab-steps-to-optimize-synthesis-to-reduce-setup-violations)
     - Clock Tree Synthesis TritonCTS and signal integrity
       - Clock tree routing and buffering using H-Tree algorithm
     - Timing analysis with real clocks using openSTA
