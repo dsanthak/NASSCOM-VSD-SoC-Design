@@ -1051,17 +1051,22 @@ Next step is to see if synthesis can be more timing-driven.
    (or)
 
    init_floorplan
+   
    place_io
+   
    global_placement_or
+   
    detailed_placement
+   
    tap_decap_or
+   
    detailed_placement
 
    After successful run, runs/[date]/results/placement/picorv32a.placement.def will be created.
 
    ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/73a2ddfb-55c6-4351-90fe-d59c06521e1b)
 
-   Search for instance of cell sky130_vsdinv inside the DEF file after placement stage: cat picorv32a.placement.def | grep sky130_vsdinv:
+   Search for instance of cell sky130_vsdinv inside the DEF file after placement stage: cat picorv32a.placement.def | grep sky130_vsdinv
 
    Select a single sky130_vsdinv cell instance from the list dumped by grep (e.g. _41096_). On tkcon, command % select cell _41096_ then ctrl+z to zoom into that cell. As shown below, 
    our customized inverter cell sky130_myinverter is sucessfully placed. Use expand on tkon to show the footprint of the cell and notice how the power and ground of sky130_vsdinv 
