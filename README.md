@@ -56,6 +56,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       - [Lab steps to optimize synthesis to reduce setup violations](#lab-steps-to-optimize-synthesis-to-reduce-setup-violations)
     - [Clock Tree Synthesis TritonCTS and signal integrity](#clock-tree-synthesis-tritoncts-and-signal-integrity)
       - [Clock tree routing and buffering using H-Tree algorithm](#clock-tree-routing-and-buffering-using-h-tree-algorithm)
+      - [Crosstalk and clock net shielding](#crosstalk-and-clock-net-shielding)
     - Timing analysis with real clocks using openSTA
 5. Final steps for RTL2GDS using tritonRoute and openSTA
 
@@ -1156,3 +1157,26 @@ This can be done iteratively until the desired slack is reached, and this is cal
 
 ## Clock Tree Synthesis TritonCTS and signal integrity
 ### Clock tree routing and buffering using H-Tree algorithm
+Consider the clock port that goes to the flip-flops highlighted in the picture. The purpose is to connect the port to the clock pins of the flip-flops based on the connectivity information. If we blindly connect as shown in the picture below, then `t2>t1` and the difference `t2-t1` is nothing but the skew. Clock skew refers to the variation in arrival times of the clock signal at different points within a synchronous digital system. In simpler terms, it is the difference in propagation delay experienced by the clock signal as it travels along different paths within the system. Clock skew can occur due to various factors such as differences in wire lengths, variations in signal routing paths, variations in buffer delays, and other physical and environmental factors. These variations can lead to some parts of the system receiving the clock signal earlier or later than others. Minimizing clock skew is essential to ensure proper synchronization of signals and reliable operation of the digital circuit. Ideally, the skew should be zero. 
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/49505f81-562b-4b90-902d-3847d836cca0)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/659f09ec-d4fa-4ce0-bf28-2e05b77ec863)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/ca25ff80-897c-43ab-978d-99d2757791f1)
+
+In the above scenario, the skew is not less/zero, so it is a bad tree. 
+
+H-Tree is the solution. It analyses the clock route by calculating the distance from the source to all the endpoints and deciding on a midpoint to start building tree from that point. In this case, the clock reaches at all the endpoints at almost the same time. 
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/206e5e7f-84c1-4427-a3c1-8081d56d3827)
+
+We expect that whatever input is provided, that should be reproduced at the output. However, due to the inherent resistance and capacitance in physical wires, the signal may experience attenuation or distortion, hindering its proper transmission to the output. To address this, repeaters or buffers are inserted along the path to ensure signal integrity and reliable transmission.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/f3fa47c3-5223-4b5c-a708-5adb6a30685f)
+
+The key difference between repeaters used in clock paths and those used in data paths lies in their rise and fall times. Clock buffers have same rise and fall times, ensuring uniform signal propagation throughout the clock distribution network. In contrast, data buffers exhibit varying rise and fall times, which may differ based on the characteristics of the data being transmitted and the components involved in processing it.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/3c2f3620-5d4d-4802-80e1-aaa4694b65bf)
+
+### Crosstalk and clock net shielding
