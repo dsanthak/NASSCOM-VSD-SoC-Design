@@ -46,8 +46,9 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
     - [Timing modelling using delay tables](#timing-modelling-using-delay-tables)
       - [Lab steps to convert grid info to track info](#lab-steps-to-convert-grid-info-to-track-info)
       - [Lab steps to convert magic layout to std cell LEF](#lab-steps-to-convert-magic-layout-to-std-cell-lef)
-      - [Introduction to timing libs and steps to include new cell in synthesis]
-      - [Introduction to delay tables]
+      - [Introduction to timing libs and steps to include new cell in synthesis](#introduction-to-timing-libs-and-steps-to-include-new-cell-in-synthesis)
+      - [Delay tables](#delay-tables)
+      - [Lab steps to configure synthesis settings to fix slack]
     - Timing analysis with ideal clocks using openSTA
     - Clock Tree Synthesis TritonCTS and signal integrity
     - Timing analysis with real clocks using openSTA
@@ -991,4 +992,54 @@ Inside pdks/sky130A/libs.ref/sky130_fd_sc_hd/lib/ are the liberty timing files f
 
    ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/f638c9e7-82ec-47f8-ba2a-a1da768d6681)
 
-### Introduction to delay tables
+### Delay tables
+Whenever the enable pin is 1, only then the CLK will propogate to Y in case of AND gate and whenever the enable pin is 0, only then the CLK will propogate to Y in case of OR gate, as shown below. When the enable is 1, the CLK will not propagate and there won't be any short circuit power consumption and switching power consumption when such elements are used in clock tree. This method is referred to as the clock gating technique.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/b1cbcbdd-5b2c-4df5-81e6-36ab656db359)
+
+Consider the below clock tree structure.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/0a109fbf-4a2d-4295-9e1d-a252816dc090)
+
+Buffers on different levels have different capacitive loads and buffer sizes but as long as they have the same loads and sizes in the same level, the total delay for each clock tree path will be the same thus skew will remain zero. Practically, different levels can have varying input transition and output capacitive load and hence varying delay.
+
+Delay tables are used to capture the timing model of each cell and is included inside the liberty file. The main factor in delay is the output slew. The output slew depends on capacitive load and input slew. The input slew is a function of previous stage buffer's output capacitive load and input slew and has its own transition delay table.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/e07ed080-fb22-4ceb-868f-f54d42193ebd)
+
+At level 2, both the buffers have identical delays with same transition times, load capacitances, and buffer sizes. Consequently, the skew is maintained at 0.If this is not the case, then the skew will be negative leading to timing violations. While these considerations may seem insignificant when analyzing the delay of just two buffers, their significance is high in designs featuring millions of cells. Failing to adhere to these guidelines during clock tree creation can lead to numerous timing-related complications.
+
+Terminologies:
+
+- CTS is the process of designing a clock distribution network to minimize skew and ensure synchronous operation of the circuit
+- Skew refers to the variation in clock signal arrival times
+- Latency is the delay experienced by the clock signal
+- Slew rate is the rate of change of the signal's voltage over time
+
+### Lab steps to configure synthesis settings to fix slack
+Currently,
+tns = -711.59
+wns = -23.89
+Chip area for module picorv32a = 147712.9184
+
+Next step is to see if synthesis can be more timing-driven.
+
+1. Check synthesis strategy and other timing related variables and modify accordingly
+
+   SYNTH_STRATEGY of delay 0 means the tool will focus more on optimizing the delay, index can be 0, 1, 2, or 3 where 3 is the most optimized for timing at the cost of area. 
+   SYNTH_BUFFERING of 1 ensures buffer will be used on high fanout cells to reduce wire delay.
+   SYNTH_SIZING of 1 will enable cell sizing where cell will be upsized or downsized as needed to meet timing.
+   SYNTH_DRIVING_CELL is the cell used to drive the input ports and is vital for cells with a lot of fan-outs since it needs higher drive strength.
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/615557e1-6573-450a-ada1-9d5a7537e09a)
+
+2. Run synthesis again and it is seen that area is increased but there is no negative slack
+
+   tns = 0
+   wns = 0
+   Chip area for module picorv32a = 209181.872
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/f6676075-1c12-4aff-8c2b-40aca90bfd9c)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/e2811e5d-6ed0-4163-a3ed-630118795bc6)
+
