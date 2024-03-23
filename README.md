@@ -48,7 +48,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       - [Lab steps to convert magic layout to std cell LEF](#lab-steps-to-convert-magic-layout-to-std-cell-lef)
       - [Introduction to timing libs and steps to include new cell in synthesis](#introduction-to-timing-libs-and-steps-to-include-new-cell-in-synthesis)
       - [Delay tables](#delay-tables)
-      - [Lab steps to configure synthesis settings to fix slack]
+      - [Lab steps to configure synthesis settings to fix slack](#lab-steps-to-configure-synthesis-settings-to-fix-slack)
     - Timing analysis with ideal clocks using openSTA
     - Clock Tree Synthesis TritonCTS and signal integrity
     - Timing analysis with real clocks using openSTA
@@ -1074,4 +1074,4 @@ Next step is to see if synthesis can be more timing-driven.
    ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/d2cea45e-b4a7-45fd-a9d0-62d7867e9dac)
 
 
-## 
+## Timing analysis with ideal clocks using openSTA
