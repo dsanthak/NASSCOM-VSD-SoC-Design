@@ -51,9 +51,9 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       - [Lab steps to configure synthesis settings to fix slack](#lab-steps-to-configure-synthesis-settings-to-fix-slack)
     - [Timing analysis with ideal clocks using openSTA](#timing-analysis-with-ideal-clocks-using-opensta)
       - [Setup timing analysis and introduction to flip-flop setup time](#setup-timing-analysis-and-introduction-to-flip-flop-setup-time)
-      - Introduction to clock jitter and uncertainty
-      - Lab steps to configure OpenSTA for post-synth timing analysis
-      - Lab steps to optimize synthesis to reduce setup violations
+      - [Introduction to clock jitter and uncertainty](#introduction-to-clock-jitter-and-uncertainty)
+      - [Lab steps to configure OpenSTA for post-synth timing analysis]()
+      - [Lab steps to optimize synthesis to reduce setup violations]
     - Clock Tree Synthesis TritonCTS and signal integrity
       - Clock tree routing and buffering using H-Tree algorithm
     - Timing analysis with real clocks using openSTA
