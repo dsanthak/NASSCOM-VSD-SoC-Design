@@ -52,7 +52,10 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
     - [Timing analysis with ideal clocks using openSTA](#timing-analysis-with-ideal-clocks-using-opensta)
       - Setup timing analysis and introduction to flip-flop setup time
       - Introduction to clock jitter and uncertainty
+      - Lab steps to configure OpenSTA for post-synth timing analysis
+      - Lab steps to optimize synthesis to reduce setup violations
     - Clock Tree Synthesis TritonCTS and signal integrity
+      - Clock tree routing and buffering using H-Tree algorithm
     - Timing analysis with real clocks using openSTA
 5. Final steps for RTL2GDS using tritonRoute and openSTA
 
@@ -1120,3 +1123,36 @@ SU = Setup uncertainty due to jitter which is temporary variation of clock perio
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/79ea0309-f621-4b18-a625-ee0bf9625623)
 
 ### Lab steps to configure OpenSTA for post-synth timing analysis
+STA can either be single corner which only uses the LIB_TYPICAL library which is the one used in pre-layout(pos-synthesis) STA or multicorner which uses LIB_SLOWEST(setup analysis, high temp low voltage),LIB_FASTEST(hold analysis, low temp high voltage), and LIB_TYPICAL libraries.
+
+1. Confiuration file on which we'll be doing pre layout analysis:
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/6dd1bcc6-ea6f-4c90-bfc4-2fe3eb37c625)
+
+2. SDC file
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/52371573-303c-42a1-a8ed-42303dab7877)
+
+`create_clock` command creates clock for the port with specified time period. 
+
+`set_input_delay` and `set_output_delay`defines the arrival/exit time of an input/output signal relative to the input clock. This is the delay of the signal coming from an external block and internal delay of the signal to be propagated to external ports. This adds a delay of Xns relative to clk to all signals going to input ports, and delay of Yns relative to clk to all signals going to output ports.
+
+`set_max_fanout` specifies maximum fanout count for all output ports in the design.
+
+`set_driving_cell` models an external driver at the input port of the current design.
+
+`set_load`  sets a capacitive load to all output ports.
+
+3. Execute `sta pre_sta.conf` and check timing.
+
+### Lab steps to optimize synthesis to reduce setup violations
+To reduce negative slack, focus on large delays. Net with big fanout might cause delay increase. Use `report_net -connections <net_name>` to display connections. First thing we can do is to go back to OpenLane and reduce fanouts by setting ::env(SYNTH_MAX_FANOUT) 4 then run_synthesis again.
+
+To further reduce the negative slack, we can also try upsizing the cell with high fanout so that bigger driver will be used. High fanout results in high load cap which then results in high delay. Since we cannot change the load capacitance, we can change the cell size to drive large cap load for less delay.
+
+This can be done iteratively until the desired slack is reached, and this is called Timing ECO (Engineering Change Order).
+
+
+
+## Clock Tree Synthesis TritonCTS and signal integrity
+### Clock tree routing and buffering using H-Tree algorithm
