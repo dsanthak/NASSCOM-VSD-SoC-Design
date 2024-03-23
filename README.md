@@ -50,6 +50,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       - [Delay tables](#delay-tables)
       - [Lab steps to configure synthesis settings to fix slack](#lab-steps-to-configure-synthesis-settings-to-fix-slack)
     - Timing analysis with ideal clocks using openSTA
+      - Setup timing analysis and introduction to flip-flop setup time
     - Clock Tree Synthesis TritonCTS and signal integrity
     - Timing analysis with real clocks using openSTA
 5. Final steps for RTL2GDS using tritonRoute and openSTA
@@ -1080,3 +1081,20 @@ Next step is to see if synthesis can be more timing-driven.
 
 
 ## Timing analysis with ideal clocks using openSTA
+### Setup timing analysis and introduction to flip-flop setup time
+Consider an ideal clock where clock tree is not built and perform timing analysis to understand the parameters. Later the same can be done using real clocks.
+Specifications are as mentioned in the picture. Clock frequncy (F) is 1GHz and clock period (T) is 1ns.
+
+![picc7](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/cfc68179-ec92-46ee-b5d8-4d2418ed36a7)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/5d13fa8b-826c-42ad-84a0-1e0260526f6a)
+
+Setup timing analysis equation is:
+
+`Θ < T - S`
+
+Θ = Combinational delay which includes clk to Q delay of launch flop and internal propagation delay of all gates between launch and capture flop
+T = Time period, also called the required time
+S = Setup time. As demonstrated below, signal must settle on the middle (input of Mux 2) before clock tansists to 1 so the delay due to Mux 1 must be considered, this delay is the setup time.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/82478661-cce9-428f-9dbc-043f0d520975)
