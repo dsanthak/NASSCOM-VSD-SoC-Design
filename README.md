@@ -49,7 +49,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       - [Introduction to timing libs and steps to include new cell in synthesis](#introduction-to-timing-libs-and-steps-to-include-new-cell-in-synthesis)
       - [Delay tables](#delay-tables)
       - [Lab steps to configure synthesis settings to fix slack](#lab-steps-to-configure-synthesis-settings-to-fix-slack)
-    - Timing analysis with ideal clocks using openSTA
+    - [Timing analysis with ideal clocks using openSTA](#timing-analysis-with-ideal-clocks-using-opensta)
       - Setup timing analysis and introduction to flip-flop setup time
       - Introduction to clock jitter and uncertainty
     - Clock Tree Synthesis TritonCTS and signal integrity
