@@ -59,7 +59,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       - [Crosstalk and clock net shielding](#crosstalk-and-clock-net-shielding)
       - [Lab steps to run and verify CTS using TritonCTS](#lab-steps-to-run-and-verify-cts-using-tritoncts)
     - [Timing analysis with real clocks using openSTA](#timing-analysis-with-real-clocks-using-opensta)
-      - [Setup timing analysis using real clocks]
+      - [Setup timing analysis using real clocks](#setup-timing-analysis-using-real-clocks)
 5. Final steps for RTL2GDS using tritonRoute and openSTA
 
 ## Inception of open-source EDA, OpenLANE and Sky130 PDK
