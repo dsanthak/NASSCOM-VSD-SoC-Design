@@ -57,7 +57,9 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
     - [Clock Tree Synthesis TritonCTS and signal integrity](#clock-tree-synthesis-tritoncts-and-signal-integrity)
       - [Clock tree routing and buffering using H-Tree algorithm](#clock-tree-routing-and-buffering-using-h-tree-algorithm)
       - [Crosstalk and clock net shielding](#crosstalk-and-clock-net-shielding)
-    - Timing analysis with real clocks using openSTA
+      - [Lab steps to run and verify CTS using TritonCTS]
+    - [Timing analysis with real clocks using openSTA]
+      - [Setup timing analysis using real clocks]
 5. Final steps for RTL2GDS using tritonRoute and openSTA
 
 ## Inception of open-source EDA, OpenLANE and Sky130 PDK
@@ -1180,3 +1182,53 @@ The key difference between repeaters used in clock paths and those used in data 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/3c2f3620-5d4d-4802-80e1-aaa4694b65bf)
 
 ### Crosstalk and clock net shielding
+Clock nets are critical nets in the design because clock tree is built is such a fashion that the skew is zero. There is a phenomenon called crosstalk where a signal transmitted on one channel unintentionally interacts with or interferes with signals on adjacent channels leading to distortion, noise, timing errors etc. If this happens on clock routes, then the clock tree structure will be deteriorated. So all the clock nets are shielded. By shielding, the clock nets are protected. If there is a wire adjacent to such shields, then there exists a huge coupling capacitance cauign two issues. One is glitch and the other is delta delay.
+
+Whenever there is a switching activity happening on the aggressor, the coupling capacitance is so strong that it directly affects the net sitting close to it called the victim net. the victim net is without any shielding. As a result, there is a dip in the voltage, resulting in glitch. 
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/100e788a-444a-40d0-884a-f97e6c61974f)
+
+Shielding basically protects the victim nets by breaking the coupling capacitance between the aggressor and the victim. These shielding nets are either Vdd or Vss. The shields do not switch, so the victim will not switch.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/9d2f9e22-618d-41cc-8cb4-a2dd7a58aea4)
+
+### Lab steps to run and verify CTS using TritonCTS
+After ECO of cell sizing, currently the timing is as follows.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/7d8e1210-fd6c-4f0a-a471-d4d92f4dc9e9)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/35edc0ef-f043-4220-aaf2-312d157d37f2)
+
+The slack might increase or decrease as we move forward in the PnR flow. For OpenLANE to use the current netlist,
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/76c46087-be99-4076-8d6a-d7d0fe9ac7b0)
+
+`write_verilog filename` overwrites the current verilog file in the specified location. 
+
+Then,
+
+`run_floorplan`
+
+`run_placement`
+
+Then run cts using the command `run_cts`. Before that we need to check the default setting s that CTS uses.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/fface768-df3f-4732-9bd3-39219969cd66)
+
+In CTS stgae, clock buffers get added. 
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/2ccd0ae7-751c-45ff-ad6e-1eb0629c111d)
+
+OpenLANE takes the procs from `~/Desktop/work/tools/openlane_working_dir/openlane/scripts/tcl_commands`. These procedures will then call OpenROAD to run the actual tool.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/8e5d751b-7f40-4ba2-9c2b-5b3482db8419)
+
+For example, run_cts can be found in the file `/OpenLane/scripts/tcl_commands/cts.tcl`, this tcl procedure will call OpenROAD and will call `/OpenLane/scripts/openroad/cts.tcl` which contains the OpenROAD commands to run TritonCTS.
+
+Inside the `/OpenLane/scripts/openroad/cts.tcl` contains the configuration variables for CTS such as:
+
+CTS_CLK_BUFFER_LIST = list of clock buffers used in clock tree branches (sky130_fd_sc_hd__clkbuf_1 sky130_fd_sc_hd__clkbuf_2 sky130_fd_sc_hd__clkbuf_4 sky130_fd_sc_hd__clkbuf_8)
+CTS_ROOT_BUFFER = clock buffer used for the root of the clock tree and is the biggest clock buffer to drive the clock tree of the whole chip (sky130_fd_sc_hd__clkbuf_16)
+CTS_MAX_CAP = maximum capacitance of the output port of the root clock buffer
+
+## Timing analysis with real clocks using openSTA
