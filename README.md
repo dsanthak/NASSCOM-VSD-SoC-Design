@@ -60,6 +60,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       - [Lab steps to run and verify CTS using TritonCTS](#lab-steps-to-run-and-verify-cts-using-tritoncts)
     - [Timing analysis with real clocks using openSTA](#timing-analysis-with-real-clocks-using-opensta)
       - [Setup timing analysis using real clocks](#setup-timing-analysis-using-real-clocks)
+      - [Hold timing analysis using real clocks](#hold-timing-analysis-using-real-clocks)
 5. Final steps for RTL2GDS using tritonRoute and openSTA
 
 ## Inception of open-source EDA, OpenLANE and Sky130 PDK
@@ -1235,3 +1236,36 @@ CTS_MAX_CAP = maximum capacitance of the output port of the root clock buffer
 
 ## Timing analysis with real clocks using openSTA
 ### Setup timing analysis using real clocks
+Now the clock tree is built and timing analysis is done on real clocks.
+
+![picc8](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/c6d747bb-c8f3-4f2b-999e-0bb32e0f4d57)
+
+delta1 = launch flop clock network delay
+delta2 = capture flop clock delay
+
+![picc9](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/9da42c43-00ca-4ca6-a215-4143648b9481)
+
+Any design satisfying `Slack = Data required time - Data arrival time` is ready to work in the given frequency. If this equation is violated , then slack will become negative. We expect slack to be 0 or positive.
+
+### Hold timing analysis using real clocks
+Hold analysis refers to the delay/time required by the MUX2 model within the flip-flop to transfer data outside. It denotes the duration during which the launch flop must retain data before it reaches the capture flop. Unlike setup analysis, which spans two rising clock edges, hold analysis occurs on the same rising clock edge for both the launch and capture flops. A hold violation occurs when the path is too fast, impacted by factors including combinational delay, clock buffer delays, and hold time. Notably, parameters such as time period and setup uncertainty hold no significance, as both launch and capture flops receive identical rising clock edges during hold analysis.
+
+![picc10](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/e63ac298-c719-4e56-b920-a9d6a87c5a3e)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/932beb5c-ab46-44db-b157-f81ab419d9ef)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/983e3318-11c2-4619-8ecb-e1b5931132e6)
+
+![picc11](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/8f625763-19d1-418e-8ab1-5707ae931e4d)
+
+`Skew = Launch Clock Network Delay`
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/9eba30d8-e711-4d42-b364-77eb84bcff95)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/acf959e6-46db-45b3-b427-d83a0fac1617)
+
+
+
+
+
+
