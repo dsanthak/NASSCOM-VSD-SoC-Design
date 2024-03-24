@@ -61,8 +61,8 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
     - [Timing analysis with real clocks using openSTA](#timing-analysis-with-real-clocks-using-opensta)
       - [Setup timing analysis using real clocks](#setup-timing-analysis-using-real-clocks)
       - [Hold timing analysis using real clocks](#hold-timing-analysis-using-real-clocks)
-      - Lab steps to analyze timing with real clocks using OpenSTA
-      - Lab steps to execute OpenSTA with right timing libraries and CTS assignment
+      - [Lab steps to analyze timing with real clocks using OpenSTA](#lab-steps-to-analyze-timing-with-real-clocks-using-opensta)
+      - [Lab steps to execute OpenSTA with right timing libraries and CTS assignment](#lab-steps-to-execute-opensta-with-right-timing-libraries-and-cts-assignment)
 5. Final steps for RTL2GDS using tritonRoute and openSTA
 
 ## Inception of open-source EDA, OpenLANE and Sky130 PDK
