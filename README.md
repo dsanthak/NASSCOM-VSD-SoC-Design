@@ -58,7 +58,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       - [Clock tree routing and buffering using H-Tree algorithm](#clock-tree-routing-and-buffering-using-h-tree-algorithm)
       - [Crosstalk and clock net shielding](#crosstalk-and-clock-net-shielding)
       - [Lab steps to run and verify CTS using TritonCTS](#lab-steps-to-run-and-verify-cts-using-tritoncts)
-    - [Timing analysis with real clocks using openSTA]
+    - [Timing analysis with real clocks using openSTA](#timing-analysis-with-real-clocks-using-opensta)
       - [Setup timing analysis using real clocks]
 5. Final steps for RTL2GDS using tritonRoute and openSTA
 
@@ -1228,7 +1228,9 @@ For example, run_cts can be found in the file `/OpenLane/scripts/tcl_commands/ct
 Inside the `/OpenLane/scripts/openroad/cts.tcl` contains the configuration variables for CTS such as:
 
 CTS_CLK_BUFFER_LIST = list of clock buffers used in clock tree branches (sky130_fd_sc_hd__clkbuf_1 sky130_fd_sc_hd__clkbuf_2 sky130_fd_sc_hd__clkbuf_4 sky130_fd_sc_hd__clkbuf_8)
+
 CTS_ROOT_BUFFER = clock buffer used for the root of the clock tree and is the biggest clock buffer to drive the clock tree of the whole chip (sky130_fd_sc_hd__clkbuf_16)
+
 CTS_MAX_CAP = maximum capacitance of the output port of the root clock buffer
 
 ## Timing analysis with real clocks using openSTA
