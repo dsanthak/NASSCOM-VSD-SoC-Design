@@ -61,6 +61,8 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
     - [Timing analysis with real clocks using openSTA](#timing-analysis-with-real-clocks-using-opensta)
       - [Setup timing analysis using real clocks](#setup-timing-analysis-using-real-clocks)
       - [Hold timing analysis using real clocks](#hold-timing-analysis-using-real-clocks)
+      - Lab steps to analyze timing with real clocks using OpenSTA
+      - Lab steps to execute OpenSTA with right timing libraries and CTS assignment
 5. Final steps for RTL2GDS using tritonRoute and openSTA
 
 ## Inception of open-source EDA, OpenLANE and Sky130 PDK
@@ -1216,7 +1218,7 @@ Then run cts using the command `run_cts`. Before that we need to check the defau
 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/fface768-df3f-4732-9bd3-39219969cd66)
 
-In CTS stgae, clock buffers get added. 
+In CTS stage, clock buffers get added. 
 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/2ccd0ae7-751c-45ff-ad6e-1eb0629c111d)
 
@@ -1265,7 +1267,43 @@ Hold analysis refers to the delay/time required by the MUX2 model within the fli
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/acf959e6-46db-45b3-b427-d83a0fac1617)
 
 
-### 
+### Lab steps to analyze timing with real clocks using OpenSTA
+The objective is to analyse the clock tree. Entering into `openroad` instead of invoking a separate OpenSTA tool. In openroad, timing analysis is done in a different way, where a db is created from lef & def and used.
+
+1. To create the db, read lef
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/913058dd-a7c0-4069-a2a7-829dedfee996)
+
+2. Read def from cts stage
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/76b2e3f8-11dd-4165-a18a-199db758c48f)
+
+3. Create db
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/6fc84067-e219-49b0-bc69-5aacfac8db5e)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/e5a1f2b0-19f1-42f0-9adc-77d71209c817)
+
+4. Read the db, verilog file, libraries, sdc
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/6a538765-0336-40fc-b9c7-4e124c37b485)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/759ecb62-6298-431c-b853-6a9240fb5c9c)
+
+5. Set propagated clock, it will calculate the actual delay in the clock path.
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/50fece02-40dd-4b53-a147-c1c193ce222e)
+
+6. Check timing
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/80ef7290-cfdb-4d65-8395-847cde01da16)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/69f809dd-63ce-4d76-b5c1-c0cc6875695d)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/5544d953-43e6-401f-8810-7ffd8a90ac03)
 
 
+### Lab steps to execute OpenSTA with right timing libraries and CTS assignment
+
+   
 
