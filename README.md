@@ -63,7 +63,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       - [Hold timing analysis using real clocks](#hold-timing-analysis-using-real-clocks)
       - [Lab steps to analyze timing with real clocks using OpenSTA](#lab-steps-to-analyze-timing-with-real-clocks-using-opensta)
       - [Lab steps to execute OpenSTA with right timing libraries](#lab-steps-to-execute-opensta-with-right-timing-libraries)
-5. [Final steps for RTL2GDS using tritonRoute and openSTA]
+5. [Final steps for RTL2GDS using tritonRoute and openSTA](#final-steps-for-rtl2gds-using-tritonroute-and-opensta)
     - [Routing and design rule check (DRC)]
     - [Power distribution network and routing]
     - [TritonRoute features]
