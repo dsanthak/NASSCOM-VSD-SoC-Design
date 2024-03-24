@@ -1258,14 +1258,14 @@ Hold analysis refers to the delay/time required by the MUX2 model within the fli
 
 ![picc11](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/8f625763-19d1-418e-8ab1-5707ae931e4d)
 
-`Skew = Launch Clock Network Delay`
+`Skew = Launch Clock Network Delay - Capture Clock Network Delay`
 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/9eba30d8-e711-4d42-b364-77eb84bcff95)
 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/acf959e6-46db-45b3-b427-d83a0fac1617)
 
 
-
+### 
 
 
 
