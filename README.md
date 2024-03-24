@@ -62,8 +62,11 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       - [Setup timing analysis using real clocks](#setup-timing-analysis-using-real-clocks)
       - [Hold timing analysis using real clocks](#hold-timing-analysis-using-real-clocks)
       - [Lab steps to analyze timing with real clocks using OpenSTA](#lab-steps-to-analyze-timing-with-real-clocks-using-opensta)
-      - [Lab steps to execute OpenSTA with right timing libraries and CTS assignment](#lab-steps-to-execute-opensta-with-right-timing-libraries-and-cts-assignment)
-5. Final steps for RTL2GDS using tritonRoute and openSTA
+      - [Lab steps to execute OpenSTA with right timing libraries](#lab-steps-to-execute-opensta-with-right-timing-libraries)
+5. [Final steps for RTL2GDS using tritonRoute and openSTA]
+    - [Routing and design rule check (DRC)]
+    - [Power distribution network and routing]
+    - [TritonRoute features]
 
 ## Inception of open-source EDA, OpenLANE and Sky130 PDK
 ## How to talk to computers?
@@ -1303,7 +1306,36 @@ The objective is to analyse the clock tree. Entering into `openroad` instead of 
    ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/5544d953-43e6-401f-8810-7ffd8a90ac03)
 
 
-### Lab steps to execute OpenSTA with right timing libraries and CTS assignment
+### Lab steps to execute OpenSTA with right timing libraries
+TritonCTS is built to optimise based on one corner but the libraries that are included in the previous section for timing analysis are min and max corners. This kind of analysis is not accurate. So, exit and re-enter openroad and check timing only for typical corner.
 
-   
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/614d93a3-de87-4b37-b29e-4cc4b9eeec6c)
 
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/e961bf62-df57-4282-b951-159fcc31bb64)
+
+In this typical scenario, slack is met in both setup and hold analysis.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/888fa348-0b7f-48fd-bb68-a4649ae42702)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/fa467cae-6911-4cde-8fa3-3e3c48817115)
+
+When CTS is built, skew values is tried to be met by inserting buffers from the CTS_CLK_BUFFER_LIST. We can also modify this list based on requirements.
+
+When TritonCTS is building the clock tree, it tries to use each buffer listed in `$::env(CTS_CLK_BUFFER_LIST) (sky130_fd_sc_hd__clkbuf_1 sky130_fd_sc_hd__clkbuf_2 sky130_fd_sc_hd__clkbuf_4 sky130_fd_sc_hd__clkbuf_8)` from smallest to largest until the target skew is met. Target skew is stored in `$::env(CTS_TARGET_SKEW)`. The STA result shows that sky130_fd_sc_hd__clkbuf_1 is the mostly used buffer, we can also change the `$::env(CTS_CLK_BUFFER_LIST)` to use other buffers and observe the effect on STA and area.
+
+Use tcl `lreplace` command to modify `$::env(CTS_CLK_BUFFER_LIST)`
+
+Example:
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/1c439227-f6f6-47cd-be46-ba299a02c41a)
+
+The `$::env(CURRENT_DEF)` used by CTS is the DEF file of the previously run CTS, but the DEF file we want for CTS is the placement's DEF file. So change the `$::env(CURRENT_DEF)` to point to placement DEF file then `run_cts`.
+
+Observe the resulting post-CTS STA compared to previous run since we modified the clock buffer. Only buf_2 clock buffer is used now compared to buf_1 used in previous run. The WNS is better now since we used bigger clock buffers.
+
+
+
+
+## Final steps for RTL2GDS using tritonRoute and openSTA
+## Routing and design rule check (DRC)
+### Introduction to 
