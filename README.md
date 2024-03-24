@@ -57,7 +57,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
     - [Clock Tree Synthesis TritonCTS and signal integrity](#clock-tree-synthesis-tritoncts-and-signal-integrity)
       - [Clock tree routing and buffering using H-Tree algorithm](#clock-tree-routing-and-buffering-using-h-tree-algorithm)
       - [Crosstalk and clock net shielding](#crosstalk-and-clock-net-shielding)
-      - [Lab steps to run and verify CTS using TritonCTS]
+      - [Lab steps to run and verify CTS using TritonCTS](lab-steps-to-run-and-verify-cts-using-tritoncts)
     - [Timing analysis with real clocks using openSTA]
       - [Setup timing analysis using real clocks]
 5. Final steps for RTL2GDS using tritonRoute and openSTA
@@ -1232,3 +1232,4 @@ CTS_ROOT_BUFFER = clock buffer used for the root of the clock tree and is the bi
 CTS_MAX_CAP = maximum capacitance of the output port of the root clock buffer
 
 ## Timing analysis with real clocks using openSTA
+### Setup timing analysis using real clocks
