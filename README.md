@@ -999,17 +999,22 @@ Inside pdks/sky130A/libs.ref/sky130_fd_sc_hd/lib/ are the liberty timing files f
 3. Run docker and prepare the design picorv32a. Plug the new lef file to the OpenLANE flow.
 
    `docker`
+   
    `./flow.tcl -interactive`
+   
    `package require openlane 0.9`
-   `prep -deign picorv32a`
+   
+   `prep -design picorv32a`
+   
    `set lefs [glob $::env(DESIGN_DIR)/src/*.lef]`
+   
    `add_lefs -src $lefs`
 
-4. Next run_synthesis. sky130_vsdinv cell is successfully included in the design
+5. Next run_synthesis. sky130_vsdinv cell is successfully included in the design
 
    ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/62316c7a-6b01-489d-8100-aa65439036e8)
 
-5. However timing is not met, so it has to be fixed
+6. However timing is not met, so it has to be fixed
 
    ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/f638c9e7-82ec-47f8-ba2a-a1da768d6681)
 
