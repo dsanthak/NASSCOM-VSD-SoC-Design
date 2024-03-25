@@ -68,6 +68,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       - [Introduction to Maze Routing](#introduction-to-maze-routing)
       - [Design Rule Check](#design-rule-check)
     - [Power distribution network and routing]
+      - [Lab steps to build power distribution network]
     - [TritonRoute features]
 
 ## Inception of open-source EDA, OpenLANE and Sky130 PDK
@@ -1373,3 +1374,18 @@ Another example:
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/a103d13c-2da7-4455-8df8-5ad9b1872db4)
 
 ### Design Rule Check
+When routing, it's not merely about connecting two points; we must also adhere to specific rules. These rules, for example, mention that when constructing two wires, there must be a minimum spacing or distance between them, minimum wire width, minimum wire pitch etc. Hence, DRC cleaning is done to ensure the=at the routes can be fabricated and printed in silicon faithfully.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/a693fa58-d18c-4a04-8aa2-234eca10038d)
+
+Signal short is also one of the critical issues as it causes functionality failure. It can be eliminated by moving the route to next layer with vias. This can lead to more DRCs (via width, via spacing, higher metal layer must be wider than lower metal layer etc.).
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/92bfd888-5840-4583-a4db-ce54e7fbdd45)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/e9aec875-786b-4e5f-aec9-11bd58aadd6d)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/6634dafd-41e9-4408-8c1d-a74177ef35c8)
+
+
+## Power Distribution Network and routing
+### Lab steps to build power distribution network
