@@ -1424,3 +1424,16 @@ As shown below, power/ground pads -> power/ground ring-> power/ground straps -> 
 ### Basics of global and detail routing and configure TritonRoute
 TritonRoute is the engine that is used for routing. `run_routing` command does routing in OpenLANE.
 
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/59e0191f-e04b-4a84-a18b-27ddbc2fb081)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/3f466947-0553-4432-90f0-482885747c42)
+
+In the VLSI flow, the routing stage is highly critical and can be executed using either open-source or commercial tools. This stage is divided into two phases:
+
+1. Global Route / Fast Route:
+   - This is accomplished using fast routing techniques where the area to be routed is partitioned into tiles or rectangles. Global routing establishes the initial framework for routing paths.
+
+2. Detail Route:
+   - This phase involves meticulous tracking routing techniques to complete the routing process. Detailed routing fine-tunes and finalizes the paths to ensure proper connectivity and compliance with design constraints.
+
+## TritonRoute features
