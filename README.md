@@ -65,6 +65,8 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       - [Lab steps to execute OpenSTA with right timing libraries](#lab-steps-to-execute-opensta-with-right-timing-libraries)
 5. [Final steps for RTL2GDS using tritonRoute and openSTA](#final-steps-for-rtl2gds-using-tritonroute-and-opensta)
     - [Routing and design rule check (DRC)](#routing-and-design-rule-check-drc)
+      - [Introduction to Maze Routing](#introduction-to-maze-routing)
+      - [Design Rule Check](#design-rule-check)
     - [Power distribution network and routing]
     - [TritonRoute features]
 
@@ -1338,4 +1340,36 @@ Observe the resulting post-CTS STA compared to previous run since we modified th
 
 ## Final steps for RTL2GDS using tritonRoute and openSTA
 ## Routing and design rule check (DRC)
-### Introduction to 
+### Introduction to Maze Routing
+Routing is to find the best possible connection/route between two points. There are many routing algorithms like Steiner Tree algorithm, Line Search algorithm etc. and one such is Maze Routing - Lee's Algorithm (Lee 1961)
+
+Consider and example of connecting two points 1 & 2. Point 1 will act as a source and 2 will act as a target. The requirement is to find the best possible path or the shortest possible path to connect 1 & 2 will less or no zig-zag routes. Mostly the routes are L-shaped. From algorithmic point of view, the software has to search and connect the two points. From physical designer point of view, it is a physical path/wire establishment for signals to travel between components.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/2ec9e7b7-1e47-4840-b3bb-ded148a17f43)
+
+Lee's maze routing algorithm, is a popular pathfinding algorithm used in maze routing, which is a type of routing problem where the goal is to find a path from a source to a destination in a maze-like grid. The Lee algorithm is particularly well-suited for routing on grids or mesh-based structures in integrated circuit design.
+
+Algorithm steps:
+
+1. Initialization: The algorithm starts by initializing a routing grid or matrix representing the maze. Each cell in the grid can be one of several states: obstacle, empty, source, 
+   destination, or visited. The source cell is marked with a value of 0, indicating that it is the starting point.
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/9cd5ac82-b595-49a1-88fd-3433a10dfc9d)
+
+2. Wave Expansion: The algorithm performs a wave expansion from the source cell, spreading outwards in all directions. At each step, the algorithm examines neighboring cells (up, down, 
+   left, and right) and assigns them a value one greater than the minimum value of their neighboring cells (excluding obstacles). This process continues until the destination cell is 
+   reached or until no more cells can be visited.
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/54b7cb66-6aa0-4a1e-bfaa-1d3ba365b73c)
+
+3. Backtracking and Path Reconstruction: Once the destination cell is reached, the algorithm traces back the path from the destination to the source by following the values in each cell. 
+   This results in the shortest path from the source to the destination. There might be multiple paths but the best path that the tool will choose is one with less bends. The route 
+   should not be diagonal and must not overlap any blockage/obstruction such as macros or HIPs.
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/3dd24e5c-c6b4-4ada-953e-f723dabf5a17)
+
+Another example:
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/a103d13c-2da7-4455-8df8-5ad9b1872db4)
+
+### Design Rule Check
