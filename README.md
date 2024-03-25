@@ -69,6 +69,8 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       - [Design Rule Check](#design-rule-check)
     - [Power distribution network and routing]
       - [Lab steps to build power distribution network]
+      - [Lab steps from power straps to std cell power]
+      - [Basics of global and detail routing and configure TritonRoute]
     - [TritonRoute features]
 
 ## Inception of open-source EDA, OpenLANE and Sky130 PDK
@@ -1389,3 +1391,29 @@ Signal short is also one of the critical issues as it causes functionality failu
 
 ## Power Distribution Network and routing
 ### Lab steps to build power distribution network
+
+1. Go to openlane directory
+2. `docker`
+3. `./flow.tcl -interactive`
+4. `package require openlane 0.9`
+5. `prep -design picorv32a -tag 19-03_16-40` (this is the folder till cts has been done)
+6. `echo $::env(CURRENT_DEF)`
+   /openLANE_flow/designs/picorv32a/runs/19-03_16-40/results/cts/picorv32a.cts.def
+7. To generate PDN: `gen_pdn`
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/c9dc6e7a-4d0c-49e4-9219-ce4922c05316)
+
+   ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/bfb1bd29-f365-4a81-8358-a68f79f2dba7)
+
+### Lab steps from power straps to std cell power
+The power and ground rails have a pitch of 2.72um and hence the reason reason why the custom inverter cell has a height of 2.72um, else the power and ground rails will not be able to power the cell. Looking at the LEF file `runs/[date]/tmp/merged.lef`, it is noticed that all cells are of height 2.72um and only width differs.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/00ce451a-408f-4b9b-a35c-9485c75673ca)
+
+As shown below, power/ground pads -> power/ground ring-> power/ground straps -> power/ground rails to power up the standard cells
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/629141e5-4b0b-42b4-a672-db6cc2658027)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/68861381-09c0-47f7-8176-0ba72697fae9)
+
+### Basics of global and detail routing and configure TritonRoute
