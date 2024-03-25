@@ -68,7 +68,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       - [Introduction to Maze Routing](#introduction-to-maze-routing)
       - [Design Rule Check](#design-rule-check)
     - [Power distribution network and routing](#power-distribution-network-and-routing)
-      - [Lab steps to build power distribution network]
+      - [Lab steps to build power distribution network](#lab-steps-to-build-power-distribution-network)
       - [Lab steps from power straps to std cell power]
       - [Basics of global and detail routing and configure TritonRoute]
     - [TritonRoute features]
