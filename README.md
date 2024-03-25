@@ -72,6 +72,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       - [Lab steps from power straps to std cell power](#lab-steps-from-power-straps-to-std-cell-power)
       - [Basics of global and detail routing and configure TritonRoute](#basics-of-global-and-detail-routing-and-configure-tritonroute)
     - [TritonRoute features]
+      - [TritonRoute method to handle connectivity]
 
 ## Inception of open-source EDA, OpenLANE and Sky130 PDK
 ## How to talk to computers?
@@ -1437,3 +1438,31 @@ In the VLSI flow, the routing stage is highly critical and can be executed using
    - This phase involves meticulous tracking routing techniques to complete the routing process. Detailed routing fine-tunes and finalizes the paths to ensure proper connectivity and compliance with design constraints.
 
 ## TritonRoute features
+
+TritonRoute feature 1 - Honors pre-processed route guides:
+
+M1 preferred direction is vertical and M2 preferred direction is horizontal. Whenever the tool encounters a non preferred direction route, then it divides the route into unit width. This is called splitting. The divided unit width sections that fall in the same line of preferred direction routes are merged. The edges which are parallel to the preferred routing direction are bridged with the upper layer, process caled as bridging. Non preferred routing guides are now converted into preferred routing guides of M2.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/2f0eb016-27f8-443c-8307-439fff1cd9af)
+
+TritonRoute feature 2 - Inter-guide connectivity:
+
+M1 and M2 are connected at the purple colour areas. The tool will understand that there is overlap area, then it will add via to connect M1 & M2. 
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/c0afc678-be45-4e70-af7b-cdec65e09fba)
+
+TritonRoute feature 3 - intra- & inter-layer routing:
+
+The preferred direction of the M1 layer is vertical, resulting in lines oriented vertically. The dashed lines are referred to as panels, with each routing guide assigned to a specific panel. When routing occurs within even-index panels, it's termed as intra-layer parallel panel routing. Initially, routing takes place simultaneously in all even-index panels, followed by routing in odd-index panels. This routing remains confined within a particular layer. Routing progresses from lower to upper layers, ensuring the orderly flow of routing operations.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/a50d2c48-0e89-40bd-b2ba-f6d2014128d5)
+
+### TritonRoute method to handle connectivity
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/ad9e4809-9def-4359-a68d-3aca7f950215)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/b9cff61a-4b96-47f7-bdd4-2e800c0f4b99)
+
+The Goal of MILP (Mixed Integer Linear Programming) algorithm is to find the optimal solution to connect two Access point cluster.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/908c4d63-84fb-4497-a34a-748128bc2ae9)
