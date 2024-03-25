@@ -67,7 +67,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
     - [Routing and design rule check (DRC)](#routing-and-design-rule-check-drc)
       - [Introduction to Maze Routing](#introduction-to-maze-routing)
       - [Design Rule Check](#design-rule-check)
-    - [Power distribution network and routing]
+    - [Power distribution network and routing](#power-distribution-network-and-routing)
       - [Lab steps to build power distribution network]
       - [Lab steps from power straps to std cell power]
       - [Basics of global and detail routing and configure TritonRoute]
@@ -1417,3 +1417,5 @@ As shown below, power/ground pads -> power/ground ring-> power/ground straps -> 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/68861381-09c0-47f7-8176-0ba72697fae9)
 
 ### Basics of global and detail routing and configure TritonRoute
+TritonRoute is the engine that is used for routing. `run_routing` command does routing in OpenLANE.
+
