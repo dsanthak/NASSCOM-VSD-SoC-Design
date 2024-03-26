@@ -73,7 +73,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       - [Basics of global and detail routing and configure TritonRoute](#basics-of-global-and-detail-routing-and-configure-tritonroute)
     - [TritonRoute features](#tritonroute-features)
       - [TritonRoute method to handle connectivity](#tritonroute-method-to-handle-connectivity)
-      - [Final files list post-route]
+      - [Final files list post-route](#final-files-list-post-route)
 6. [Acknowledgements]
 
 ## Inception of open-source EDA, OpenLANE and Sky130 PDK
