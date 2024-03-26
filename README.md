@@ -71,7 +71,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       - [Lab steps to build power distribution network](#lab-steps-to-build-power-distribution-network)
       - [Lab steps from power straps to std cell power](#lab-steps-from-power-straps-to-std-cell-power)
       - [Basics of global and detail routing and configure TritonRoute](#basics-of-global-and-detail-routing-and-configure-tritonroute)
-    - [TritonRoute features]
+    - [TritonRoute features](#tritonroute-features)
       - [TritonRoute method to handle connectivity]
 
 ## Inception of open-source EDA, OpenLANE and Sky130 PDK
