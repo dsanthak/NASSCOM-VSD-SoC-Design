@@ -74,7 +74,7 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
     - [TritonRoute features](#tritonroute-features)
       - [TritonRoute method to handle connectivity](#tritonroute-method-to-handle-connectivity)
       - [Final files list post-route](#final-files-list-post-route)
-6. [Acknowledgements]
+6. [Acknowledgements](#acknowledgements)
 
 ## Inception of open-source EDA, OpenLANE and Sky130 PDK
 ## How to talk to computers?
