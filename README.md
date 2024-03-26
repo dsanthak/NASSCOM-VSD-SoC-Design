@@ -72,7 +72,9 @@ This is my compilation of notes for the [Workshop](https://vsdsquadron.vlsisyste
       - [Lab steps from power straps to std cell power](#lab-steps-from-power-straps-to-std-cell-power)
       - [Basics of global and detail routing and configure TritonRoute](#basics-of-global-and-detail-routing-and-configure-tritonroute)
     - [TritonRoute features](#tritonroute-features)
-      - [TritonRoute method to handle connectivity]
+      - [TritonRoute method to handle connectivity](#tritonroute-method-to-handle-connectivity)
+      - [Final files list post-route]
+6. [Acknowledgements]
 
 ## Inception of open-source EDA, OpenLANE and Sky130 PDK
 ## How to talk to computers?
@@ -1466,3 +1468,48 @@ The preferred direction of the M1 layer is vertical, resulting in lines oriented
 The Goal of MILP (Mixed Integer Linear Programming) algorithm is to find the optimal solution to connect two Access point cluster.
 
 ![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/908c4d63-84fb-4497-a34a-748128bc2ae9)
+
+In the above algorithm, for each access point, cost is found. Then, a minimum spanning tree between access points and cost. So, the algorithm says that minimal and most optimal point is nedded between two APCs.
+
+### Final files list post-route
+With `run_routing` command, routing got completed. Both global routing (fast routing) and detail routing are done. It takes multiple iterations to bring down the DRC violations to 0. routing strategy was set to 0. In the intial iteration, the violation count was close to 25000 and at the 34th iteration, the violations got resolved and became 0. The entire routing operation took nearly 25 minutes. 
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/dca40366-c53a-468e-ac5e-6ddaba4440ad)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/09bbc1f3-3d10-43a5-971e-c0602ea62c6d)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/f1be118b-7f4a-4916-9214-2d93b7065a9c)
+
+A DEF file will be formed in `runs/[date]/results/routing/picorv32.def`. Open the DEF file of routing stage in Magic.
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/953fe2fb-93df-4618-9405-11dd8775fa95)
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/a834dc5f-92f7-420b-82f1-b137fb5898bb)
+
+Parasitic extraction:
+
+OpenLane does not have any spef extraction tool, so we use a separate tool present in work/tools/ directory.
+
+1. Go to /home/vsduser/Desktop/work/tools
+2. Inside that there is a folder named SPEF_EXTRACTOR
+3. SPEF_EXTRACTOR contains a list of files, out of which there is a python file called main.py. It helps to generate the SPEF provided there are lef & def files
+4. To create SPEF file
+   `python3 main.py /home/vsduser/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-03_05-49/tmp/merged.lef 
+   /home/vsduser/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-03_05-49/tmp/routing/picorv32a.def`
+5. spef will be saved in the same location as def file.
+   `/home/vsduser/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-03_05-49/tmp/routing`
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/55566294-8604-4afd-976f-4b5a4457eef5)
+
+The last stage will be to extract the GDSII file ready for fabrication
+`run_magic`
+
+This uses Magic to stream the GDSII file `runs/26-03_05-49/results/magic/picorv32a.gds`. This GDSII file can then be read by Magic:
+
+![image](https://github.com/dsanthak/NASSCOM-VSD-SoC-Design/assets/163589731/ada81ef9-8a48-41ef-9ca8-ee59dd409358)
+
+The PnR flow is done!
+
+
+## Acknowledgements
+[Kunal Ghosh - Co-founder of VSD](https://www.udemy.com/user/anagha/)
